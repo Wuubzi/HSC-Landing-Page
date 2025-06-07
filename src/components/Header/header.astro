@@ -1,0 +1,81 @@
+---
+import { useTranslations } from "../../i18n/util";
+import { languages} from "../../i18n/ui";
+const currentLang = Astro.currentLocale || 'es';
+import "./header.css"
+const translateLabels = useTranslations(currentLang as keyof typeof languages);
+---
+
+<header>
+ <div class="header-container">
+    <!-- Header Logo -->
+    <figure class="header-logo-container">
+        <img class="header-logo" src="/assets/Icons/HSC.svg" alt={translateLabels("nav.logoAlt")} />
+    </figure>
+    <!-- Navigation Menu -->
+    <nav class="header-nav">
+        <!-- Close Menu Navigation -->
+         <figure class="header-close-container">
+            <img class="header-close" src="/assets/Icons/close.svg" alt={translateLabels("nav.closeHamburguerAlt")} />
+         </figure>
+        <!-- Navigation List -->
+        <ul class="header-nav-list">
+            <!-- Home -->
+            <li class="header-nav-item">
+                <a>{translateLabels("nav.home")}</a>
+            </li>
+            <!-- About Us -->
+            <li class="header-nav-item">
+                <a>{translateLabels("nav.about")}</a>
+            </li>
+            <!-- Services -->
+            <li class="header-nav-item">
+                <a>{translateLabels("nav.services")}</a>
+            </li>
+            <!-- We Talent -->
+            <li class="header-nav-item">
+                <a>{translateLabels("nav.talent")}</a>
+            </li>
+            <!-- Projects -->
+            <li class="header-nav-item">
+                <a>{translateLabels("nav.projects")}</a>
+            </li>
+            <!-- Members -->
+            <li class="header-nav-item">
+                <a>{translateLabels("nav.members")}</a>
+            </li>
+            <!-- Reviews -->
+            <li class="header-nav-item">
+                <a>{translateLabels("nav.reviews")}</a>
+            </li>
+            <!-- Blogs -->
+            <li class="header-nav-item">
+                <a>{translateLabels("nav.blogs")}</a>
+            </li>
+        </ul>
+        <div>
+               <!-- Language Switcher -->
+                <div class="language-switcher">
+                    <h3 class="language-title">{translateLabels("nav.language")}</h3>
+                    <div class="language-options-mobile">
+                        {Object.entries(languages).map(([key, label]) => {
+                            return (
+                                <a href={`/${key}`} class={`language-option-mobile ${key === currentLang ? 'active' : ''}`} data-lang={key}>
+                                    <span>{label}</span>
+                                    <span class="language-check">✓</span>
+                                </a>
+                            );
+                        })}
+                    </div>
+                </div>
+          <!-- Contact Button -->
+           <button class="contact-button">{translateLabels("nav.contact")}</button>
+        </div>
+    </nav>
+     <!-- Hamburguer Menu -->
+      <figure class="header-hamburguer-container">
+        <img class="header-hamburguer" src="/assets/Icons/hamburguer.svg" alt={translateLabels("nav.hamburguerAlt")} />
+      </figure>
+ </div>
+  <script src="./header.js"></script>
+</header>

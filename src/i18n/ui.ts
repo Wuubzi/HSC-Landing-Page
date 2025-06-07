@@ -1,0 +1,49 @@
+export const languages = {
+    es: 'Español',
+    en: 'English'
+}
+
+export const labels  = {
+    es: {
+        "nav.logoAlt": "Logo de HSC - Servicios, Suministros e Ingeniería",
+        "nav.home": "Inicio",
+        "nav.about": "Sobre Nosotros",
+        "nav.services": "Servicios",
+        "nav.talent": "Nuestro Talento",
+        "nav.projects": "Proyectos",
+        "nav.members": "Miembros",
+        "nav.reviews": "Reseñas",
+        "nav.blogs": "Blog",
+        "nav.languages": "Lenguajes",
+        "nav.contact": "Contáctanos",
+        "nav.hamburguerAlt": "Abrir menú de navegación",
+        "nav.closeHamburguerAlt": "Cerrar menú de navegación",
+        "nav.language": "Idioma",
+        "hero.title.important": "Haz que sea mas fácil",
+        "hero.title": "Gestionar  la Construccion.",
+        "hero.description": "Prestamos servicios con talento humano calificado en diseño, desarrollo y ejecución de obras civiles, montaje industrial y estructuras metálicas, con más de 15 años de experiencia a nivel nacional.",
+        "hero.button": "Conocenos",
+        "hero.imageAlt": "Mujer trabajadora de la construcción con casco, gafas de seguridad y herramientas, sonriendo.",
+    },
+    en: {
+        "nav.logoAlt": "HSC Logo - Services, Supplies and Engineering",
+        "nav.home": "Home",
+        "nav.about": "About Us",
+        "nav.services": "Services",
+        "nav.talent": "Our Talent",
+        "nav.projects": "Projects",
+        "nav.members": "Members",
+        "nav.reviews": "Reviews",
+        "nav.blogs": "Blog",
+        "nav.languages": "Languages",
+        "nav.contact": "Contact Us",
+        "nav.hamburguerAlt": "Open navigation menu",
+        "nav.closeHamburguerAlt": "Close navigation menu",
+        "nav.language": "Language",
+        "hero.title.important": "Make it easier",
+        "hero.title": "to manage construction.",
+        "hero.description": "We provide services with qualified human talent in the design, development, and execution of civil works, industrial assembly, and metal structures, with over 15 years of national experience.",
+        "hero.button": "Get to know us",
+        "hero.imageAlt": "Smiling female construction worker wearing a hard hat, safety glasses, and tools."
+    }
+}
