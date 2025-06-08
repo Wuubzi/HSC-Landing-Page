@@ -1,81 +1,233 @@
 ---
 import { useTranslations } from "../../i18n/util";
-import { languages} from "../../i18n/ui";
-const currentLang = Astro.currentLocale || 'es';
-import "./header.css"
+import { languages } from "../../i18n/ui";
+const currentLang = Astro.currentLocale || "es";
+import "./header.css";
 const translateLabels = useTranslations(currentLang as keyof typeof languages);
 ---
 
 <header>
- <div class="header-container">
-    <!-- Header Logo -->
-    <figure class="header-logo-container">
-        <img class="header-logo" src="/assets/Icons/HSC.svg" alt={translateLabels("nav.logoAlt")} />
-    </figure>
-    <!-- Navigation Menu -->
-    <nav class="header-nav">
-        <!-- Close Menu Navigation -->
-         <figure class="header-close-container">
-            <img class="header-close" src="/assets/Icons/close.svg" alt={translateLabels("nav.closeHamburguerAlt")} />
-         </figure>
-        <!-- Navigation List -->
-        <ul class="header-nav-list">
-            <!-- Home -->
-            <li class="header-nav-item">
-                <a>{translateLabels("nav.home")}</a>
-            </li>
-            <!-- About Us -->
-            <li class="header-nav-item">
-                <a>{translateLabels("nav.about")}</a>
-            </li>
-            <!-- Services -->
-            <li class="header-nav-item">
-                <a>{translateLabels("nav.services")}</a>
-            </li>
-            <!-- We Talent -->
-            <li class="header-nav-item">
-                <a>{translateLabels("nav.talent")}</a>
-            </li>
-            <!-- Projects -->
-            <li class="header-nav-item">
-                <a>{translateLabels("nav.projects")}</a>
-            </li>
-            <!-- Members -->
-            <li class="header-nav-item">
-                <a>{translateLabels("nav.members")}</a>
-            </li>
-            <!-- Reviews -->
-            <li class="header-nav-item">
-                <a>{translateLabels("nav.reviews")}</a>
-            </li>
-            <!-- Blogs -->
-            <li class="header-nav-item">
-                <a>{translateLabels("nav.blogs")}</a>
-            </li>
-        </ul>
-        <div>
-               <!-- Language Switcher -->
-                <div class="language-switcher">
-                    <h3 class="language-title">{translateLabels("nav.language")}</h3>
-                    <div class="language-options-mobile">
-                        {Object.entries(languages).map(([key, label]) => {
-                            return (
-                                <a href={`/${key}`} class={`language-option-mobile ${key === currentLang ? 'active' : ''}`} data-lang={key}>
-                                    <span>{label}</span>
-                                    <span class="language-check">✓</span>
-                                </a>
-                            );
-                        })}
-                    </div>
-                </div>
-          <!-- Contact Button -->
-           <button class="contact-button">{translateLabels("nav.contact")}</button>
-        </div>
-    </nav>
-     <!-- Hamburguer Menu -->
-      <figure class="header-hamburguer-container">
-        <img class="header-hamburguer" src="/assets/Icons/hamburguer.svg" alt={translateLabels("nav.hamburguerAlt")} />
+  <div class="header-desktop">
+    <div class="header-desktop-container">
+      <figure class="header-logo-container">
+        <img
+          class="header-logo"
+          src="/assets/Icons/HSC.svg"
+          alt={translateLabels("nav.logoAlt")}
+        />
       </figure>
- </div>
-  <script src="./header.js"></script>
+      <!-- Number Contact -->
+      <div class="header-desktop-item">
+        <figure>
+          <img
+            src="/assets/Icons/number.svg"
+            alt={translateLabels("nav.desktop.numberAlt")}
+          />
+        </figure>
+        <div>
+          <h2>{translateLabels("nav.desktop.number")}</h2>
+          <p>(+57) 3012886951</p>
+          <p>(+57) 3004989512</p>
+        </div>
+      </div>
+      <!-- Email  -->
+      <div class="header-desktop-item">
+        <figure>
+          <img
+            src="/assets/Icons/email.svg"
+            alt={translateLabels("nav.desktop.emailAlt")}
+          />
+        </figure>
+        <div>
+          <h2>{translateLabels("nav.desktop.email")}</h2>
+          <p>ssspv@hotmail.com</p>
+        </div>
+      </div>
+      <!-- Address -->
+      <div class="header-desktop-item">
+        <figure>
+          <img
+            src="/assets/Icons/address.svg"
+            alt={translateLabels("nav.desktop.addressAlt")}
+          />
+        </figure>
+        <div>
+          <h2>{translateLabels("nav.desktop.address")}</h2>
+          <p class="header-desktop-address">
+            Cra 6 No 14 - 44 Palmar de Varela - Atlantico
+          </p>
+        </div>
+      </div>
+    </div>
+    <nav class="header-desktop-nav">
+      <ul class="header-desktop-nav-list">
+        <!-- Home -->
+        <li class="header-desktop-nav-item">
+          <a>{translateLabels("nav.home")}</a>
+          <span class="triangle"></span>
+        </li>
+        <!-- About Us -->
+        <li class="header-desktop-nav-item">
+          <a>{translateLabels("nav.about")}</a>
+          <span class="triangle"></span>
+        </li>
+        <!-- Services -->
+        <li class="header-desktop-nav-item">
+          <a>{translateLabels("nav.services")}</a>
+          <span class="triangle"></span>
+        </li>
+        <!-- We Talent -->
+        <li class="header-desktop-nav-item">
+          <a>{translateLabels("nav.talent")}</a>
+          <span class="triangle"></span>
+        </li>
+        <!-- Projects -->
+        <li class="header-desktop-nav-item">
+          <a>{translateLabels("nav.projects")}</a>
+          <span class="triangle"></span>
+        </li>
+        <!-- Members -->
+        <li class="header-desktop-nav-item">
+          <a>{translateLabels("nav.members")}</a>
+          <span class="triangle"></span>
+        </li>
+        <!-- Reviews -->
+        <li class="header-desktop-nav-item">
+          <a>{translateLabels("nav.reviews")}</a>
+          <span class="triangle"></span>
+        </li>
+        <!-- Blogs -->
+        <li class="header-desktop-nav-item">
+          <a>{translateLabels("nav.blogs")}</a>
+          <span class="triangle"></span>
+        </li>
+      </ul>
+      <div class="header-desktop-nav-actions">
+        <!-- Language Selector -->
+        <div class="language-trigger" onclick="toggleLanguageDropdown()">
+          <div class="current-flag flag-es" id="current-flag"></div>
+          <span class="current-lang" id="current-lang"
+            >{languages[currentLang as keyof typeof languages]}</span
+          >
+          <span class="dropdown-arrow" id="dropdown-arrow">▼</span>
+        </div>
+
+        <!-- Dropdown Language -->
+        <div class="language-dropdown" id="language-dropdown">
+          <div class="language-list">
+            {
+              Object.entries(languages).map(([key, label]) => {
+                return (
+                  <a
+                    class={`language-item ${key === currentLang ? "active" : ""}`}
+                    data-lang={key}
+                    href={`/${key}`}
+                  >
+                    <div class={`flag flag-${key}`} />
+                    <span>{label}</span>
+                  </a>
+                );
+              })
+            }
+          </div>
+        </div>
+
+        <!-- Contact Button -->
+        <button class="desktop-contact-button">
+          {translateLabels("nav.contact")}
+        </button>
+      </div>
+    </nav>
+  </div>
 </header>
+
+<!-- MOBILE HEADER -->
+<div class="header-container">
+  <!-- Header Logo -->
+  <figure class="header-logo-container">
+    <img
+      class="header-logo"
+      src="/assets/Icons/HSC.svg"
+      alt={translateLabels("nav.logoAlt")}
+    />
+  </figure>
+  <!-- Navigation Menu -->
+  <nav class="header-nav">
+    <!-- Close Menu Navigation -->
+    <figure class="header-close-container">
+      <img
+        class="header-close"
+        src="/assets/Icons/close.svg"
+        alt={translateLabels("nav.closeHamburguerAlt")}
+      />
+    </figure>
+    <!-- Navigation List -->
+    <ul class="header-nav-list">
+      <!-- Home -->
+      <li class="header-nav-item">
+        <a>{translateLabels("nav.home")}</a>
+      </li>
+      <!-- About Us -->
+      <li class="header-nav-item">
+        <a>{translateLabels("nav.about")}</a>
+      </li>
+      <!-- Services -->
+      <li class="header-nav-item">
+        <a>{translateLabels("nav.services")}</a>
+      </li>
+      <!-- We Talent -->
+      <li class="header-nav-item">
+        <a>{translateLabels("nav.talent")}</a>
+      </li>
+      <!-- Projects -->
+      <li class="header-nav-item">
+        <a>{translateLabels("nav.projects")}</a>
+      </li>
+      <!-- Members -->
+      <li class="header-nav-item">
+        <a>{translateLabels("nav.members")}</a>
+      </li>
+      <!-- Reviews -->
+      <li class="header-nav-item">
+        <a>{translateLabels("nav.reviews")}</a>
+      </li>
+      <!-- Blogs -->
+      <li class="header-nav-item">
+        <a>{translateLabels("nav.blogs")}</a>
+      </li>
+    </ul>
+    <div>
+      <!-- Language Switcher -->
+      <div class="language-switcher">
+        <h3 class="language-title">{translateLabels("nav.language")}</h3>
+        <div class="language-options-mobile">
+          {
+            Object.entries(languages).map(([key, label]) => {
+              return (
+                <a
+                  href={`/${key}`}
+                  class={`language-option-mobile ${key === currentLang ? "active" : ""}`}
+                  data-lang={key}
+                >
+                  <span>{label}</span>
+                  <span class="language-check">✓</span>
+                </a>
+              );
+            })
+          }
+        </div>
+      </div>
+      <!-- Contact Button -->
+      <button class="contact-button">{translateLabels("nav.contact")}</button>
+    </div>
+  </nav>
+  <!-- Hamburguer Menu -->
+  <figure class="header-hamburguer-container">
+    <img
+      class="header-hamburguer"
+      src="/assets/Icons/hamburguer.svg"
+      alt={translateLabels("nav.hamburguerAlt")}
+    />
+  </figure>
+</div>
+<script src="./header.js"></script>

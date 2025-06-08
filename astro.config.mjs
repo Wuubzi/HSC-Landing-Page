@@ -10,5 +10,8 @@ export default defineConfig({
         routing: {
             prefixDefaultLocale: true,
         }
+    },
+    devToolbar: {
+        enabled: false
     }
 });
