@@ -204,6 +204,7 @@ section {
     font-size: 1.4rem;
     padding-right: 2vw;
     z-index: 2;
+    width: 90%;
   }
   .swiper-button-next,
   .swiper-button-prev {
@@ -232,4 +233,11 @@ section {
 
 /* Pantallas Grandes */
 @media (min-width: 1536px) {
+  .service-section-container .right-section h1 {
+    font-size: 3rem;
+  }
+  .service-section-container .right-section p {
+    font-size: 2rem;
+    width: 100%;
+  }
 }
