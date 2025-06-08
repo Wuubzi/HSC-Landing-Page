@@ -34,7 +34,7 @@ export const labels = {
       "Mujer trabajadora de la construcción con casco, gafas de seguridad y herramientas, sonriendo.",
     "service.title": "Nuestros Servicios",
     "service.description":
-      "Soluciones integrales en construccíon y talento humano, con calidad, seguridda, y eficiencia. Contamos con un equipo altamente capacitado para impulsar tus proyectos desde la planificacion hasta la ejecucion",
+      "Soluciones integrales en construccíon y talento humano, con calidad, seguridad, y eficiencia. Contamos con un equipo altamente capacitado para impulsar tus proyectos desde la planificacion hasta la ejecucion",
     "service.card.first.iconAlt":
       "Icono de edificio azul sobre fondo blanco con esquinas redondeadas",
     "service.card.first.title": "Estructuras Metalicas",
