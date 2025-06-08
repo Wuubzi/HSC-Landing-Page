@@ -9,55 +9,67 @@ import "./Services.css";
 <section>
   <div class="service-section-container">
     <div class="right-section">
+      <div class="blue-card"></div>
       <h1>{translateLabels("service.title")}</h1>
       <p>{translateLabels("service.description")}</p>
     </div>
 
     <div class="left-section">
-      <div class="carousel">
-        <div class="carousel-track card-container">
+      <div class="swiper mySwiper">
+        <div class="card-container swiper-wrapper">
           <!-- CARD 1 -->
-          <div class="card card-1">
-            <div class="background-icon">
-              <figure>
-                <img
-                  src="/assets/Icons/service-first-card-icon.svg"
-                  alt={translateLabels("service.card.first.iconAlt")}
-                />
-              </figure>
+          <div class="swiper-slide">
+            <div class="card card-1">
+              <div class="background-icon">
+                <figure>
+                  <img
+                    src="/assets/Icons/service-first-card-icon.svg"
+                    alt={translateLabels("service.card.first.iconAlt")}
+                  />
+                </figure>
+              </div>
+              <h2>{translateLabels("service.card.first.title")}</h2>
+              <p>{translateLabels("service.card.first.description")}</p>
             </div>
-            <h2>{translateLabels("service.card.first.title")}</h2>
-            <p>{translateLabels("service.card.first.description")}</p>
           </div>
 
           <!-- CARD 2 -->
-          <div class="card card-2">
-            <div class="background-icon">
-              <figure>
-                <img
-                  src="/assets/Icons/service-second-card-icon.svg"
-                  alt={translateLabels("service.card.second.iconAlt")}
-                />
-              </figure>
+          <div class="swiper-slide">
+            <div class="card card-2">
+              <div class="background-icon">
+                <figure>
+                  <img
+                    src="/assets/Icons/service-second-card-icon.svg"
+                    alt={translateLabels("service.card.second.iconAlt")}
+                  />
+                </figure>
+              </div>
+              <h2>{translateLabels("service.card.second.title")}</h2>
+              <p>{translateLabels("service.card.second.description")}</p>
             </div>
-            <h2>{translateLabels("service.card.second.title")}</h2>
-            <p>{translateLabels("service.card.second.description")}</p>
           </div>
 
           <!-- CARD 3 -->
-          <div class="card card-3">
-            <div class="background-icon">
-              <figure>
-                <img
-                  src="/assets/Icons/service-third-card-icon.svg"
-                  alt={translateLabels("service.card.third.iconAlt")}
-                />
-              </figure>
+          <div class="swiper-slide">
+            <div class="card card-3">
+              <div class="background-icon">
+                <figure>
+                  <img
+                    src="/assets/Icons/service-third-card-icon.svg"
+                    alt={translateLabels("service.card.third.iconAlt")}
+                  />
+                </figure>
+              </div>
+              <h2>{translateLabels("service.card.third.title")}</h2>
+              <p>{translateLabels("service.card.third.description")}</p>
             </div>
-            <h2>{translateLabels("service.card.third.title")}</h2>
-            <p>{translateLabels("service.card.third.description")}</p>
           </div>
         </div>
+        <!-- Navigation buttons -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+        <div class="swiper-pagination"></div>
       </div>
     </div>
   </div>
