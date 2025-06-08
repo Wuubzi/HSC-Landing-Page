@@ -1,0 +1,65 @@
+---
+import { useTranslations } from "../../i18n/util";
+import { languages } from "../../i18n/ui";
+const currentLang = Astro.currentLocale || "es";
+const translateLabels = useTranslations(currentLang as keyof typeof languages);
+import "./Services.css";
+---
+
+<section>
+  <div class="service-section-container">
+    <div class="right-section">
+      <h1>{translateLabels("service.title")}</h1>
+      <p>{translateLabels("service.description")}</p>
+    </div>
+
+    <div class="left-section">
+      <div class="carousel">
+        <div class="carousel-track card-container">
+          <!-- CARD 1 -->
+          <div class="card card-1">
+            <div class="background-icon">
+              <figure>
+                <img
+                  src="/assets/Icons/service-first-card-icon.svg"
+                  alt={translateLabels("service.card.first.iconAlt")}
+                />
+              </figure>
+            </div>
+            <h2>{translateLabels("service.card.first.title")}</h2>
+            <p>{translateLabels("service.card.first.description")}</p>
+          </div>
+
+          <!-- CARD 2 -->
+          <div class="card card-2">
+            <div class="background-icon">
+              <figure>
+                <img
+                  src="/assets/Icons/service-second-card-icon.svg"
+                  alt={translateLabels("service.card.second.iconAlt")}
+                />
+              </figure>
+            </div>
+            <h2>{translateLabels("service.card.second.title")}</h2>
+            <p>{translateLabels("service.card.second.description")}</p>
+          </div>
+
+          <!-- CARD 3 -->
+          <div class="card card-3">
+            <div class="background-icon">
+              <figure>
+                <img
+                  src="/assets/Icons/service-third-card-icon.svg"
+                  alt={translateLabels("service.card.third.iconAlt")}
+                />
+              </figure>
+            </div>
+            <h2>{translateLabels("service.card.third.title")}</h2>
+            <p>{translateLabels("service.card.third.description")}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="./Services"></script>
