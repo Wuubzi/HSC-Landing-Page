@@ -1,0 +1,148 @@
+section {
+  padding: 0;
+  margin: 0;
+}
+
+.service-section-container {
+  background-image: url("/assets/images/backgroung-services.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+.service-section-container .right-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.service-section-container .right-section h1 {
+  color: #ffff;
+  font-weight: 600;
+  font-family: "Work Sans", sans-serif;
+}
+
+.service-section-container .right-section p {
+  color: #ffff;
+  font-weight: 300;
+  font-family: "Work Sans", sans-serif;
+}
+
+.service-section-container .left-section .card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.service-section-container .left-section .card-container .card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1 1 calc(33.333% - 40px);
+  max-width: 400px;
+  background-color: rgba(26, 26, 26, 0.7);
+  color: #ffff;
+  padding: 2rem;
+  border-radius: 25px;
+  border: 2px solid #4d4d4d;
+  text-align: center;
+}
+
+.service-section-container
+  .left-section
+  .card-container
+  .card
+  .background-icon {
+  background-color: #ffff;
+  padding: 1vw 2vw;
+  width: min-content;
+  margin: auto;
+  border-radius: 7px;
+}
+
+.carousel {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  width: 300%;
+}
+
+.card {
+  flex: 0 0 100%;
+  max-width: 100%;
+  position: relative;
+}
+
+.carrousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.background-play-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #1aa0d6;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.background-play-right-icon {
+  position: absolute;
+  top: 50%;
+  left: -5%;
+}
+
+.background-play-left-icon {
+  position: absolute;
+  top: 50%;
+  right: -5%;
+}
+
+.right-play-icon {
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 10px solid black;
+  margin-right: 4px;
+  position: relative;
+}
+
+.left-play-icon {
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 10px solid black;
+  margin-left: 4px;
+}
+
+.service-section-container .left-section .card-container .card figure {
+  width: 50vw;
+  max-width: 35px;
+  min-width: 20px;
+  margin: 0 auto;
+}
+
+.service-section-container .left-section .card-container .card figure img {
+  width: 100%;
+  object-fit: cover;
+}
