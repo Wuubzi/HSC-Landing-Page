@@ -1,0 +1,127 @@
+---
+import { useTranslations } from "../../i18n/util";
+import { languages } from "../../i18n/ui";
+const currentLang = Astro.currentLocale || "es";
+const translateLabels = useTranslations(currentLang as keyof typeof languages);
+import "./footer.css";
+---
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-content">
+      <div class="footer-first-section">
+        <figure>
+          <img
+            src="/assets/Icons/HSC.svg"
+            alt={translateLabels("nav.logoAlt")}
+          />
+        </figure>
+        <p class="footer-description">
+          {translateLabels("footer.description")}
+        </p>
+        <div class="social-media-container">
+          <div class="social-media">
+            <figure>
+              <img src="/assets/Icons/facebook.svg" alt="" />
+            </figure>
+          </div>
+          <div class="social-media">
+            <figure>
+              <img src="/assets/Icons/twitter.svg" alt="" />
+            </figure>
+          </div>
+          <div class="social-media">
+            <figure>
+              <img src="/assets/Icons/linkeind.svg" alt="" />
+            </figure>
+          </div>
+          <div class="social-media">
+            <figure>
+              <img src="/assets/Icons/instagram.svg" alt="" />
+            </figure>
+          </div>
+        </div>
+      </div>
+      <div class="footer-second-section">
+        <h2>{translateLabels("footer.link.title")}</h2>
+        <ul>
+          <li>
+            <a>
+              {translateLabels("footer.link.first")}
+            </a>
+          </li>
+          <li>
+            <a>
+              {translateLabels("footer.link.second")}
+            </a>
+          </li>
+          <li>
+            <a>
+              {translateLabels("footer.link.third")}
+            </a>
+          </li>
+          <li>
+            <a>
+              {translateLabels("footer.link.four")}
+            </a>
+          </li>
+          <li>
+            <a>
+              {translateLabels("footer.link.fifth")}
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-third-section">
+        <h2>{translateLabels("footer.blog.title")}</h2>
+        <div class="blogs-container">
+          <div>
+            <figure>
+              <img src="/assets/images/footer-first-image-blog.png" alt="" />
+            </figure>
+            <p>{translateLabels("footer.blog.first.title")}</p>
+          </div>
+          <div>
+            <figure>
+              <img src="/assets/images/footer-second-image-blog.png" alt="" />
+            </figure>
+            <p>{translateLabels("footer.blog.second.title")}</p>
+          </div>
+          <div>
+            <figure>
+              <img src="/assets/images/footer-third-image-blog.png" alt="" />
+            </figure>
+            <p>{translateLabels("footer.blog.third.title")}</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-four-section">
+        <h2>{translateLabels("footer.contact.title")}</h2>
+        <div class="contact-container">
+          <div>
+            <figure>
+              <img src="/assets/Icons/location.svg" alt="" />
+            </figure>
+            <p>Cra 6 No 14 - 44 Palmar de Varela - Atlantico</p>
+          </div>
+          <div>
+            <figure>
+              <img src="/assets/Icons/phone.svg" alt="" />
+            </figure>
+            <p>(+57) 3012886951</p>
+            <p>(+57) 3004989512</p>
+          </div>
+          <div>
+            <figure>
+              <img src="/assets/Icons/gmail.svg" alt="" />
+            </figure>
+            <p>ssspv@hotmail.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright-content">
+      <p>Copyright @2025 HSC.</p>
+    </div>
+  </div>
+</footer>

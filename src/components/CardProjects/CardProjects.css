@@ -1,0 +1,84 @@
+.card-project {
+  padding: 15px;
+  width: 90%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.card-project figure {
+  width: 25vw;
+  height: 25vw;
+  min-width: 350px;
+  min-height: 350px;
+}
+
+.card-project img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: filter 0.3s ease;
+}
+
+.card-project:hover .text-container {
+  display: flex;
+}
+
+.text-container {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  position: absolute;
+  padding: 0 2rem;
+  text-align: center;
+  color: white;
+  z-index: 2;
+}
+
+.color-blur-overlay {
+  border-radius: 15px;
+  position: absolute;
+  inset: 0;
+  background: rgba(30, 144, 255, 0.7); /* azul semitransparente */
+  backdrop-filter: blur(10px); /* desenfoque */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+.card-project:hover .color-blur-overlay {
+  opacity: 1;
+}
+
+.text-container h1 {
+  font-size: 1.8rem;
+}
+
+.text-container p {
+  font-size: 1.2rem;
+}
+
+/* RESPONSIVE STYLES */
+
+/* Tablets */
+@media (min-width: 728px) {
+}
+
+/* Laptos Pequeñas */
+@media (min-width: 1024px) {
+}
+
+/* Laptops medianas */
+@media (min-width: 1280px) {
+}
+
+/* Pantallas Grandes */
+@media (min-width: 1536px) {
+}

@@ -1,0 +1,65 @@
+---
+import { useTranslations } from "../../i18n/util";
+import { languages } from "../../i18n/ui";
+const currentLang = Astro.currentLocale || "es";
+const translateLabels = useTranslations(currentLang as keyof typeof languages);
+import "./Reviews.css";
+const reviews = [
+  // first review
+  {
+    image: "/assets/images/review-first-image.png",
+    imageAlt: translateLabels("reviews.card.first.imageAlt"),
+    name: "Angeline Treny",
+    occupation: "CEO Lomford",
+    review: translateLabels("reviews.card.first.review"),
+  },
+  //   second review
+  {
+    image: "/assets/images/reviews-card-second-image.jpg",
+    imageAlt: translateLabels("reviews.card.second.imageAlt"),
+    name: "Daniel Castro",
+    occupation: "Operations Manager",
+    review: translateLabels("reviews.card.second.review"),
+  },
+  //   third review
+  {
+    image: "/assets/images/reviews-card-third-image.jpg",
+    imageAlt: translateLabels("reviews.card.third.imageAlt"),
+    name: " Ricardo Gómez",
+    occupation: "Commercial Director",
+    review: translateLabels("reviews.card.third.review"),
+  },
+];
+---
+
+<section>
+  <div class="first-background">
+    <h1>{translateLabels("reviews.title")}</h1>
+  </div>
+  <div class="background-reviews">
+    <div class="swiper SwiperReviews">
+      <div class="swiper-wrapper">
+        {
+          reviews.map((review) => (
+            <div class="swiper-slide">
+              <div class="review-card">
+                <div class="header-card">
+                  <figure>
+                    <img src={review.image} alt={review.imageAlt} />
+                  </figure>
+                  <h2>{review.name}</h2>
+                  <p>{review.occupation}</p>
+                </div>
+                <div class="description">
+                  <p>{review.review}</p>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+<script src="./Reviews.js"></script>

@@ -3,6 +3,13 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header/header.astro";
 import HeroSection from "../../components/HeroSection/HeroSection.astro";
 import Services from "../../components/WeServices/Services.astro";
+import Projects from "../../components/Projects/Projects.astro";
+import Reviews from "../../components/Reviews/Reviews.astro";
+import Logos from "../../components/Logos/Logos.astro";
+import AboutUs from "../../components/AboutUs/AboutUs.astro";
+import WeTalent from "../../components/WeTalent/WeTalent.astro";
+import Members from "../../components/Members/Members.astro";
+import Footer from "../../components/Footer/footer.astro";
 ---
 
 <Layout>
@@ -10,8 +17,14 @@ import Services from "../../components/WeServices/Services.astro";
     <Header />
     <HeroSection />
   </div>
-
+  <AboutUs />
   <Services />
+  <WeTalent />
+  <Projects />
+  <Members />
+  <Reviews />
+  <Logos />
+  <Footer />
 </Layout>
 
 <style>

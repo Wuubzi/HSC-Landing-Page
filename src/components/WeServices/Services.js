@@ -5,10 +5,10 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const swiperContainer = document.querySelector(".mySwiper");
+  const swiperContainer = document.querySelector(".SwiperService");
 
   if (swiperContainer) {
-    const swiper = new Swiper(".mySwiper", {
+    const swiper = new Swiper(".SwiperService", {
       modules: [Navigation, Pagination, Autoplay],
       slidesPerView: 1,
       spaceBetween: 30,

@@ -1,0 +1,142 @@
+.first-background {
+  background-image: url("/assets/images/first-background-reviewsection.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.first-background h1 {
+  color: #fff;
+  font-family: "Work Sans", sans-serif;
+  font-size: 1.5rem;
+}
+
+.background-reviews {
+  background-image: url("/assets/images/background-reviewssection.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  padding: 2rem;
+}
+
+.review-card {
+  background-color: #fff3cf;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 650px;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  padding: 2rem;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.review-card .header-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.review-card .header-card h2 {
+  font-family: "Work Sans", sans-serif;
+  font-size: 1.2rem;
+}
+
+.review-card .header-card p {
+  font-family: "Work Sans", sans-serif;
+  font-size: 1.1rem;
+}
+
+.review-card .description p {
+  font-family: "Work Sans", sans-serif;
+  font-size: 1.1rem;
+}
+.review-card .header-card figure {
+  width: 20vw;
+  max-width: 120px;
+  margin: 0 auto;
+}
+
+.review-card .header-card figure img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.background-reviews .swiper {
+  width: 100%;
+  height: auto;
+  padding: 20px 0 60px 0;
+}
+
+.background-reviews .swiper-wrapper {
+  align-items: stretch;
+  max-width: 350px;
+}
+
+.background-reviews .swiper-slide {
+  height: auto;
+  display: flex;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: #0056b3;
+  border-color: #0056b3;
+  transform: scale(1.1);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 20px !important;
+  font-weight: bold;
+}
+
+.swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 1) !important;
+  opacity: 1 !important;
+}
+
+/* RESPONSIVE STYLES */
+
+/* Tablets */
+@media (min-width: 728px) {
+}
+
+/* Laptos Pequeñas */
+@media (min-width: 1024px) {
+  .first-background {
+    padding: 5rem 0;
+  }
+
+  .first-background h1 {
+    font-size: 2.5rem;
+  }
+  .review-card .header-card h2 {
+    font-size: 1.4rem;
+  }
+
+  .review-card .header-card p {
+    font-size: 1.3rem;
+  }
+
+  .review-card .description p {
+    font-size: 1.2rem;
+  }
+}
+
+/* Laptops medianas */
+@media (min-width: 1280px) {
+}
+
+/* Pantallas Grandes */
+@media (min-width: 1536px) {
+}
