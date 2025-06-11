@@ -1,0 +1,47 @@
+.logo-container {
+  overflow: hidden;
+  width: 100%;
+  background: white; /* puedes personalizar */
+  padding: 2rem 0;
+}
+
+.logo-slide {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  animation: scroll 100s linear infinite;
+  width: max-content;
+}
+
+.logo-slide figure {
+  flex-shrink: 0;
+  min-width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-slide img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .logo-slide {
+    gap: 2rem;
+  }
+
+  .logo-slide img {
+    height: 40px;
+  }
+}

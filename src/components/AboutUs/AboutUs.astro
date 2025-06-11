@@ -1,0 +1,126 @@
+---
+import { useTranslations } from "../../i18n/util";
+import { languages } from "../../i18n/ui";
+const currentLang = Astro.currentLocale || "es";
+const translateLabels = useTranslations(currentLang as keyof typeof languages);
+import "./AboutUs.css";
+---
+
+<section>
+  <div class="about-us-section-container">
+    <div class="right-section">
+      <h1>
+        {translateLabels("aboutUs.title")}
+        <span>{translateLabels("aboutUs.title.important")}</span>
+      </h1>
+      <p>{translateLabels("aboutUs.description")}</p>
+      <ul>
+        <li>
+          <figure>
+            <img
+              src="/assets/Icons/check.svg"
+              alt={translateLabels("aboutUs.list.iconAlt")}
+            />
+          </figure>
+          <p>{translateLabels("aboutUs.list.first")}</p>
+        </li>
+        <li>
+          <figure>
+            <img
+              src="/assets/Icons/check.svg"
+              alt={translateLabels("aboutUs.list.iconAlt")}
+            />
+          </figure>
+          <p>{translateLabels("aboutUs.list.second")}</p>
+        </li>
+        <li>
+          <figure>
+            <img
+              src="/assets/Icons/check.svg"
+              alt={translateLabels("aboutUs.list.iconAlt")}
+            />
+          </figure>
+          <p>{translateLabels("aboutUs.list.third")}</p>
+        </li>
+        <li>
+          <figure>
+            <img
+              src="/assets/Icons/check.svg"
+              alt={translateLabels("aboutUs.list.iconAlt")}
+            />
+          </figure>
+          <p>{translateLabels("aboutUs.list.four")}</p>
+        </li>
+        <li>
+          <figure>
+            <img
+              src="/assets/Icons/check.svg"
+              alt={translateLabels("aboutUs.list.iconAlt")}
+            />
+          </figure>
+          <p>{translateLabels("aboutUs.list.fifth")}</p>
+        </li>
+      </ul>
+    </div>
+    <div class="left-section">
+      <div class="bento-container">
+        <div class="first-card">
+          <figure>
+            <img
+              src="/assets/images/first-image-card-about-us.png"
+              alt={translateLabels("aboutUs.bento.first.imageAlt")}
+            />
+          </figure>
+        </div>
+        <div class="second-card">
+          <figure class="image-container">
+            <img
+              src="/assets/images/second-image-card-about-us.png"
+              alt={translateLabels("aboutUs.bento.second.imageAlt")}
+            />
+          </figure>
+          <div class="about-text-container">
+            <figure class="icon-container">
+              <img
+                src="/assets/Icons/client.svg"
+                alt={translateLabels("aboutUs.bento.client.imageAlt")}
+              />
+            </figure>
+            <div>
+              <h2>{translateLabels("aboutUs.bento.client.title")}</h2>
+              <p>{translateLabels("aboutUs.bento.client.description")}</p>
+            </div>
+          </div>
+        </div>
+        <div class="third-card">
+          <figure class="image-container">
+            <img
+              src="/assets/images/second-image-card-about-us.png"
+              alt={translateLabels("aboutUs.bento.third.imageAlt")}
+            />
+          </figure>
+          <div class="about-text-content">
+            <figure class="icon-container">
+              <img
+                src="/assets/Icons/experience.svg"
+                alt={translateLabels("aboutUs.bento.experiencie.imageAlt")}
+              />
+            </figure>
+            <div>
+              <h2>{translateLabels("aboutUs.bento.experience.title")}</h2>
+              <p>{translateLabels("aboutUs.bento.experiencie.description")}</p>
+            </div>
+          </div>
+        </div>
+        <div class="four-card">
+          <figure>
+            <img
+              src="/assets/images/four-image-card-about-us.png"
+              alt={translateLabels("aboutUs.bento.four.imageAlt")}
+            />
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

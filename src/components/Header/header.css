@@ -458,6 +458,9 @@ body.no-scroll {
 
 /* Pantallas Grandes */
 @media (min-width: 1536px) {
+  .header-desktop-container {
+    padding: 1.5rem 0.5rem;
+  }
   .header-desktop-nav-item {
     font-size: 1.5rem;
   }

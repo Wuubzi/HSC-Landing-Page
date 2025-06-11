@@ -1,0 +1,15 @@
+---
+const { title, description, image, imageAlt } = Astro.props;
+import "./CardProjects.css";
+---
+
+<div class="card-project">
+  <figure>
+    <img src={image} alt={imageAlt} />
+  </figure>
+  <div class="color-blur-overlay"></div>
+  <div class="text-container">
+    <h1>{title}</h1>
+    <p>{description}</p>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+---
+import { useTranslations } from "../../i18n/util";
+import { languages } from "../../i18n/ui";
+const currentLang = Astro.currentLocale || "es";
+const translateLabels = useTranslations(currentLang as keyof typeof languages);
+import "./Members.css";
+const members = [
+  {
+    image: "/assets/images/members-first-card-image.png",
+    imageAlt: translateLabels("mebers.first.card.imageAlt"),
+    name: "Richard Abraham",
+    Occupation: translateLabels("members.first.card.ocupation"),
+  },
+  {
+    image: "/assets/images/members-second-card-image.png",
+    imageAlt: translateLabels("mebers.second.card.imageAlt"),
+    name: "Lucas Andrew",
+    Occupation: translateLabels("members.second.card.ocupation"),
+  },
+  {
+    image: "/assets/images/members-third-card-image.png",
+    imageAlt: translateLabels("mebers.third.card.imageAlt"),
+    name: "Sarah Alexon",
+    Occupation: translateLabels("members.third.card.ocupation"),
+  },
+];
+---
+
+<section>
+  <div class="member-section-container">
+    <div class="right-section">
+      <div class="blue-card"></div>
+      <h1>{translateLabels("members.title")}</h1>
+      <p>{translateLabels("members.description")}</p>
+    </div>
+    <div class="left-section">
+      <div class="swiper SwiperMembers">
+        <div class="members-card-container swiper-wrapper">
+          {
+            members.map((member) => (
+              <div class="swiper-slide">
+                <div class="members-card">
+                  <figure class="members-card-image">
+                    <img src={member.image} alt={member.imageAlt} />
+                  </figure>
+                  <div class="members-text-container">
+                    <h2>{member.name}</h2>
+                    <p>{member.Occupation}</p>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+        <!-- Navigation buttons -->
+        <div class="custom-navigation">
+          <div class="swiper-button-prev custom-prev"></div>
+          <div class="swiper-button-next custom-next"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="./Members.js"></script>
