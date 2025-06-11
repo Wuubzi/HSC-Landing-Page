@@ -135,6 +135,9 @@ export const labels = {
       "La experiencia trabajando con Constructora HSC ha sido sobresaliente. Su compromiso con la calidad y la puntualidad en cada fase del proyecto es digno de elogio. Definitivamente, son un referente en el sector de la construcción",
     "reviews.card.third.imageAlt":
       "Un hombre con gafas y barba, vistiendo un saco de cuadros y camisa blanca con cuello estampado.",
+    "working.title": "¿Quieres trabajar con nosotros?",
+    "working.description": "Únete a un equipo apasionado por construir el futuro. Buscamos personas comprometidas, creativas y con ganas de crecer.",
+    "working.button": "Subir CV",
     "footer.description":
       "HSC se esfuerza por ser un líder intelectual en nuestra industria y brindar información continua y actualizaciones a nuestros clientes",
     "footer.link.title": "Enlaces Rapido",
@@ -281,7 +284,11 @@ export const labels = {
       "The experience working with Constructora HSC has been outstanding. Their commitment to quality and punctuality in every project phase is commendable. They are definitely a benchmark in the construction sector.",
     "reviews.card.third.imageAlt":
       "A man with glasses and a beard, wearing a plaid suit jacket and white shirt with a patterned collar.",
-    "footer.description":
+    "working.title": "Want to work with us?",
+    "working.description":
+      "Join a team passionate about building the future. We are looking for committed, creative individuals eager to grow.",
+    "working.button": "Upload CV",
+      "footer.description":
       "HSC strives to be a thought leader in our industry and provide continuous information and updates to our clients.",
     "footer.link.title": "Quick Links",
     "footer.link.first": "About Us",

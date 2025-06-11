@@ -1,0 +1,94 @@
+.working-container {
+    background-image: url("/assets/images/background-working.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.working-container .working-text-container {
+     background: linear-gradient(
+      to right,
+      rgba(26, 26, 26, 1) 0%,
+      rgba(26, 26, 26, 0.5) 30%,
+      rgba(26, 26, 26, 0.5) 97%
+    );
+    padding: 2rem;
+}
+
+.working-container h1 {
+    font-size: 2rem;
+    color: #fff;
+    font-family: "Work Sans", sans-serif;
+    margin-bottom: 1rem;
+}
+
+.working-container p {
+    font-size: 1.2rem;
+    color: #fff;
+    font-family: "Work Sans", sans-serif;
+    margin-bottom: 2rem;
+}
+
+
+.working-container button {
+    background-color: #1AA0D6;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-family: "Work Sans", sans-serif;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+}
+
+
+
+/* RESPONSIVE STYLES */
+
+/* Tablets */
+@media (min-width: 728px) {
+}
+
+/* Laptos Pequeñas */
+@media (min-width: 1024px) {
+    .working-container {
+        display: flex;
+        justify-content: center;
+        align-items: end;
+    }
+
+    .working-container .working-text-container {
+        padding: 9rem;
+        width: 50%;
+    }
+      .working-container .working-text-container  h1 {
+        font-size: 3rem;
+
+      }
+
+        .working-container .working-text-container  p {
+        font-size: 1.5rem;
+        }
+
+        .working-container .working-text-container button {
+        font-size: 2rem;
+        padding: 2rem 4rem;
+        }
+
+}
+
+/* Laptops medianas */
+@media (min-width: 1280px) {
+}
+
+/* Pantallas Grandes */
+@media (min-width: 1536px) {
+}
