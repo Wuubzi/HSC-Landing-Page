@@ -3,7 +3,7 @@ title: "Construcción Educativa y Deportiva con Propósito"
 description: "La importancia de espacios escolares y deportivos bien construidos"
 author: "Tu Nombre"
 date: 2024-06-12T00:00:00.000Z
-image: "/images/educativo.jpg"
+image: "/assets/blogs/blog3.jpeg"
 tags: ["educación", "infraestructura", "deporte"]
 lang: "es"
 ---

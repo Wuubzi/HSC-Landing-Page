@@ -3,7 +3,7 @@ title: "Urbanismo Logístico Eficiente"
 description: "El rol de la infraestructura civil en parques logísticos modernos"
 author: "Tu Nombre"
 date: 2024-06-11T00:00:00.000Z
-image: "/images/logistica.jpg"
+image: "/assets/blogs/blog2.jpeg"
 tags: ["urbanismo", "logística", "infraestructura"]
 lang: "es"
 ---

@@ -3,7 +3,7 @@ title: "Efficient Logistics Urbanism"
 description: "The role of civil infrastructure in modern logistics parks"
 author: "Your Name"
 date: 2024-06-11T00:00:00.000Z
-image: "/images/logistics.jpg"
+image: "/assets/blogs/blog2.jpeg"
 tags: ["urbanism", "logistics", "infrastructure"]
 lang: "en"
 ---

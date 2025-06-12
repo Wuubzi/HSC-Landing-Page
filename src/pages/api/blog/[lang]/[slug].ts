@@ -82,3 +82,18 @@ export const GET: APIRoute = async ({ params }) => {
     );
   }
 };
+
+export async function getStaticPaths() {
+  const { getCollection } = await import('astro:content');
+  const blogs = await getCollection("blogs");
+
+  return blogs.map(blog => {
+    const [lang, ...slugParts ] = blog.slug.split('/')
+    return {
+      params: {
+        lang,
+        slug: slugParts.join('/')
+      }
+    }
+  })
+}

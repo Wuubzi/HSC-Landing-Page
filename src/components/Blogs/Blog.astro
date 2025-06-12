@@ -6,6 +6,7 @@ const translateLabels = useTranslations(currentLang as keyof typeof languages);
 import "./Blog.css";
 import { getCollection } from "astro:content";
 import BlogsCards from "../BlogCards/BlogsCards.astro";
+import BlogsModals from "../BlogsModals/BlogsModals.astro";
 const allBlogs = await getCollection("blogs", ({ data }) => {
   return data.lang === currentLang;
 });
@@ -19,8 +20,19 @@ const sortedBlogs = allBlogs.sort(
   <div class="blog-container">
     <div class="blue-background"></div>
     <h1>{translateLabels("blog.title")}</h1>
-    <div class="blog-container">
-      {sortedBlogs.map((blog) => <BlogsCards blog={blog} lang={currentLang} />)}
+    <div class="swiper SwiperBlog">
+      <div class="blogs-container swiper-wrapper">
+        {
+          sortedBlogs.map((blog) => (
+            <div class="swiper-slide">
+              <BlogsCards blog={blog} lang={currentLang} />
+            </div>
+          ))
+        }
+      </div>
     </div>
   </div>
+<BlogsModals />
 </section>
+
+<script src="./Blog.js"></script>

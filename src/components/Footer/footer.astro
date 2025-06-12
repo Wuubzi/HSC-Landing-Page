@@ -4,6 +4,16 @@ import { languages } from "../../i18n/ui";
 const currentLang = Astro.currentLocale || "es";
 const translateLabels = useTranslations(currentLang as keyof typeof languages);
 import "./footer.css";
+import { getCollection } from "astro:content";
+const allBlogs = await getCollection("blogs", ({ data }) => {
+  return data.lang === currentLang;
+});
+
+
+const sortedBlogs = allBlogs.sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+
 ---
 
 <footer>
@@ -90,24 +100,15 @@ import "./footer.css";
       <div class="footer-third-section">
         <h2>{translateLabels("footer.blog.title")}</h2>
         <div class="blogs-container">
-          <div class="blog-item">
+         {sortedBlogs.map((blog) => (
+                  <div class="blog-item">
             <figure>
-              <img src="/assets/images/footer-first-image-blog.png" alt="" />
+              <img src={blog.data.image} alt="" />
             </figure>
-            <p>{translateLabels("footer.blog.first.title")}</p>
+            <p>{blog.data.description}</p>
           </div>
-          <div class="blog-item">
-            <figure>
-              <img src="/assets/images/footer-second-image-blog.png" alt="" />
-            </figure>
-            <p>{translateLabels("footer.blog.second.title")}</p>
-          </div>
-          <div class="blog-item">
-            <figure>
-              <img src="/assets/images/footer-third-image-blog.png" alt="" />
-            </figure>
-            <p>{translateLabels("footer.blog.third.title")}</p>
-          </div>
+          ))}
+    
         </div>
       </div>
       <div class="footer-four-section">

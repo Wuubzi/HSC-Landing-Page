@@ -22,7 +22,9 @@ const { blog } = Astro.props;
 <div class="blog-card" data-blog-slug={blog.slug}>
   {
     blog.data.image && (
+      <figure>
       <img src={blog.data.image} alt={blog.data.title} class="blog-image" />
+      </figure>
     )
   }
   <div class="blog-content">

@@ -1,0 +1,13 @@
+.blog-container {
+    padding: 2.5rem 1.5rem;
+    background-color: #FFF3CF;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}    
+
+.blog-container h1 {
+    font-size: 1.6rem;
+    font-size: 'Work-sans' sans serif;
+}
