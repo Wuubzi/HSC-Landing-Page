@@ -1,0 +1,26 @@
+---
+import { useTranslations } from "../../i18n/util";
+import { languages } from "../../i18n/ui";
+const currentLang = Astro.currentLocale || "es";
+const translateLabels = useTranslations(currentLang as keyof typeof languages);
+import "./Blog.css";
+import { getCollection } from "astro:content";
+import BlogsCards from "../BlogCards/BlogsCards.astro";
+const allBlogs = await getCollection("blogs", ({ data }) => {
+  return data.lang === currentLang;
+});
+
+const sortedBlogs = allBlogs.sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+---
+
+<section>
+  <div class="blog-container">
+    <div class="blue-background"></div>
+    <h1>{translateLabels("blog.title")}</h1>
+    <div class="blog-container">
+      {sortedBlogs.map((blog) => <BlogsCards blog={blog} lang={currentLang} />)}
+    </div>
+  </div>
+</section>

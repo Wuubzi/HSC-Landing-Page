@@ -1,0 +1,45 @@
+---
+import "./BlogsCards.css";
+export interface Props {
+  blog: {
+    slug: string;
+    data: {
+      title: string;
+      description: string;
+      author: string;
+      date: Date;
+      image?: string;
+      tags?: string[];
+      lang: string;
+    };
+  };
+  lang: string;
+}
+
+const { blog } = Astro.props;
+---
+
+<div class="blog-card" data-blog-slug={blog.slug}>
+  {
+    blog.data.image && (
+      <img src={blog.data.image} alt={blog.data.title} class="blog-image" />
+    )
+  }
+  <div class="blog-content">
+    <h3 class="blog-title">{blog.data.title}</h3>
+    <p class="blog-description">{blog.data.description}</p>
+    <div class="blog-meta">
+      <span class="blog-date">{blog.data.date.toLocaleDateString("es-ES")}</span
+      >
+    </div>
+    {
+      blog.data.tags && (
+        <div class="blog-tags">
+          {blog.data.tags.map((tag) => (
+            <span class="tag">{tag}</span>
+          ))}
+        </div>
+      )
+    }
+  </div>
+</div>

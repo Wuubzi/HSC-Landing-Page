@@ -1,0 +1,85 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 8px;
+  max-width: 90%;
+  max-height: 90%;
+  width: 800px;
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1001;
+  color: #4a5568;
+}
+
+.modal-close:hover {
+  color: #1a202c;
+}
+
+.modal-body {
+  padding: 2rem;
+  overflow-y: auto;
+  max-height: 80vh;
+}
+
+.modal-body h1 {
+  color: #1a202c;
+  margin-bottom: 1rem;
+}
+
+.modal-body h2 {
+  color: #2d3748;
+  margin: 1.5rem 0 1rem 0;
+}
+
+.modal-body p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #4a5568;
+}
+
+.modal-body ul,
+.modal-body ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.modal-body pre {
+  background: #f7fafc;
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+.modal-body code {
+  background: #edf2f7;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-family: "Courier New", monospace;
+}

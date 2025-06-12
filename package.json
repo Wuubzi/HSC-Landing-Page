@@ -10,6 +10,10 @@
   },
   "dependencies": {
     "astro": "^5.8.2",
+    "marked": "^15.0.12",
     "swiper": "^11.2.8"
+  },
+  "devDependencies": {
+    "@types/marked": "^5.0.2"
   }
 }
