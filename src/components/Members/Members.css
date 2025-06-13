@@ -37,6 +37,7 @@
 .member-section-container .left-section .members-card-container .members-card {
   width: 100%;
   position: relative;
+  overflow: visible;
 }
 
 .member-section-container
@@ -132,22 +133,26 @@
     padding: 2rem 0;
     border-radius: 15px;
     z-index: 1;
+    max-height: 25vw;
   }
 
   .member-section-container .members-card {
-    max-width: 600px;
+    max-width: 700px;
   }
 
   .member-section-container .right-section h1 {
     position: relative;
     z-index: 100;
-    font-size: 4rem;
+    font-size: 2.5rem;
+    width: 100%;
+    padding-left: 20px;
   }
 
   .member-section-container .right-section p {
     position: relative;
     z-index: 100;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    padding-left: 20px;
   }
 
   .member-section-container

@@ -221,6 +221,7 @@ section {
 
   .card {
     text-align: start;
+    min-height: 400px;
   }
   .background-icon {
     margin: 0;

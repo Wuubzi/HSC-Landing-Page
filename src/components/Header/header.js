@@ -29,3 +29,19 @@ trigger.addEventListener("click", () => {
     trigger.classList.remove("active");
   }
 });
+
+const navItems = document.querySelectorAll(".header-nav a, .header-nav li");
+
+navItems.forEach((item) => {
+  item.addEventListener("click", () => {
+    nav.classList.remove("active");
+    document.body.classList.remove("no-scroll");
+
+    if (isDropdownOpen) {
+      dropdown.classList.remove("open");
+      arrow.classList.remove("open");
+      trigger.classList.remove("active");
+      isDropdownOpen = false;
+    }
+  });
+});

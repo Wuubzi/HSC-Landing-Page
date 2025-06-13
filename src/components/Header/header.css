@@ -55,7 +55,7 @@ body.no-scroll {
   margin-bottom: 2rem;
 }
 
-.header-nav-item {
+.header-nav-item a {
   text-decoration: none;
   color: #334155;
   font-size: 1.2rem;
@@ -65,7 +65,7 @@ body.no-scroll {
   border-bottom: 1px solid transparent;
 }
 
-.header-nav-item:hover {
+.header-nav-item a:hover {
   color: #1aa0d6;
   border-bottom-color: #1aa0d6;
 }
@@ -289,6 +289,10 @@ body.no-scroll {
     cursor: pointer;
     position: relative;
   }
+  .header-desktop-nav-item a {
+    text-decoration: none;
+    color: #333;
+  }
 
   .header-desktop-nav-item .triangle {
     position: absolute;
@@ -308,7 +312,7 @@ body.no-scroll {
     opacity: 1;
   }
 
-  .header-desktop-nav-item:hover {
+  .header-desktop-nav-item a:hover {
     color: var(--primary-color);
   }
 

@@ -9,12 +9,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const closeBtn = document.getElementById("close-modal");
   const modalBody = document.getElementById("modal-body");
 
-  // Cerrar modal
   closeBtn?.addEventListener("click", () => {
     modal?.classList.remove("active");
   });
 
-  // Cerrar modal al hacer clic fuera
   modal?.addEventListener("click", (e) => {
     if (e.target === modal) {
       modal.classList.remove("active");
@@ -28,16 +26,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // EVENT DELEGATION - Escuchar clicks en el documento
-  // Esto funciona incluso si las cards se cargan dinámicamente
   document.addEventListener("click", async (e) => {
-    // Verificar si el click fue en una blog-card o dentro de una
     const blogCard = e.target.closest(".blog-card");
-    
+
     if (blogCard) {
       const slug = blogCard.getAttribute("data-blog-slug");
       console.log("Card clicked via delegation, slug:", slug);
-      
+
       if (slug) {
         try {
           const response = await fetch(`/api/blog/${slug}`);
@@ -59,32 +54,27 @@ document.addEventListener("DOMContentLoaded", function () {
   const swiperContainer = document.querySelector(".SwiperBlog");
 
   if (swiperContainer) {
-    // Usar MutationObserver para detectar cuando se agreguen las slides
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
-        if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-          // Se agregaron nodos, verificar si son slides
-          const slides = swiperContainer.querySelectorAll('.swiper-slide');
+        if (mutation.type === "childList" && mutation.addedNodes.length > 0) {
+          const slides = swiperContainer.querySelectorAll(".swiper-slide");
           if (slides.length > 0) {
             console.log("Slides detectados:", slides.length);
             initializeSwiper();
-            observer.disconnect(); // Dejar de observar una vez inicializado
+            observer.disconnect();
           }
         }
       });
     });
 
-    // Observar cambios en el swiper-wrapper
-    const swiperWrapper = swiperContainer.querySelector('.swiper-wrapper');
+    const swiperWrapper = swiperContainer.querySelector(".swiper-wrapper");
     if (swiperWrapper) {
       observer.observe(swiperWrapper, { childList: true, subtree: true });
     }
 
-    // También intentar inicializar inmediatamente por si ya están las slides
     setTimeout(() => {
-      const slides = swiperContainer.querySelectorAll('.swiper-slide');
+      const slides = swiperContainer.querySelectorAll(".swiper-slide");
       if (slides.length > 0) {
-        console.log("Slides ya presentes:", slides.length);
         initializeSwiper();
         observer.disconnect();
       }
@@ -113,14 +103,12 @@ document.addEventListener("DOMContentLoaded", function () {
         dynamicBullets: true,
       },
 
-       breakpoints: {
+      breakpoints: {
         1024: {
           slidesPerView: 3,
         },
       },
     });
-
-    
 
     const handleResize = () => {
       const nextBtn = document.querySelector(".swiper-button-next");
