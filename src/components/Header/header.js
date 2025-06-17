@@ -23,12 +23,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // --- Helper Function for Email ---
   const openEmailClient = () => {
-    console.log("a");
-    window.location.href = `mailto:${emailAddress}?subject=${encodeURIComponent(
+    console.log("Abriendo cliente de email");
+    const mailtoLink = `mailto:${emailAddress}?subject=${encodeURIComponent(
       emailSubject
     )}`;
+    window.open(mailtoLink);
   };
-
   // --- Mobile Navigation Event Listeners ---
   burguer?.addEventListener("click", () => {
     nav?.classList.toggle("active");
