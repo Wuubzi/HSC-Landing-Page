@@ -23,12 +23,12 @@ const { blog } = Astro.props;
   {
     blog.data.image && (
       <figure>
-      <img src={blog.data.image} alt={blog.data.title} class="blog-image" />
+        <img src={blog.data.image} alt={blog.data.title} class="blog-image" />
       </figure>
     )
   }
   <div class="blog-content">
-    <h3 class="blog-title">{blog.data.title}</h3>
+    <h2 class="blog-title">{blog.data.title}</h2>
     <p class="blog-description">{blog.data.description}</p>
     <div class="blog-meta">
       <span class="blog-date">{blog.data.date.toLocaleDateString("es-ES")}</span

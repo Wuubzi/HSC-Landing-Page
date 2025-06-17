@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .footer-container .footer-content {
@@ -156,6 +157,14 @@
   .footer-content
   .footer-first-section
   .social-media-container
+  .social-media {
+  cursor: pointer;
+}
+
+.footer-container
+  .footer-content
+  .footer-first-section
+  .social-media-container
   .social-media
   figure {
   width: 40px;
@@ -190,6 +199,70 @@
   background-color: #1a1a1a;
   color: #ffff;
   font-size: 1.4rem;
+}
+
+.animate-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.footer-first-section.animate-scroll {
+  transform: translateX(-40px);
+}
+
+.footer-first-section.animate-scroll.visible {
+  transform: translateX(0);
+}
+
+.footer-second-section.animate-scroll {
+  transform: translateY(40px);
+}
+
+.footer-second-section.animate-scroll.visible {
+  transform: translateY(0);
+}
+
+.footer-third-section.animate-scroll {
+  transform: translateY(35px) scale(0.95);
+}
+
+.footer-third-section.animate-scroll.visible {
+  transform: translateY(0) scale(1);
+}
+
+.footer-four-section.animate-scroll {
+  transform: translateX(40px);
+}
+
+.footer-four-section.animate-scroll.visible {
+  transform: translateX(0);
+}
+
+.blog-item {
+  cursor: pointer;
+}
+
+.blog-item.animate-scroll {
+  transform: translateY(25px) scale(0.9);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.blog-item.animate-scroll.visible {
+  transform: translateY(0) scale(1);
+}
+
+.copyright-content.animate-scroll {
+  transform: translateY(20px);
+}
+
+.copyright-content.animate-scroll.visible {
+  transform: translateY(0);
 }
 
 /* RESPONSIVE STYLES */

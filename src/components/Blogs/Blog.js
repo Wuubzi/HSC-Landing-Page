@@ -130,3 +130,43 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("resize", handleResize);
   }
 });
+
+let blogAnimated = false;
+
+function initBlogAnimation() {
+  if (blogAnimated) return;
+
+  const elements = document.querySelectorAll("#blogs .animate-scroll");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !blogAnimated) {
+          entry.target.classList.add("visible");
+        }
+      });
+
+      const allVisible = Array.from(elements).every((el) =>
+        el.classList.contains("visible")
+      );
+      if (allVisible) {
+        blogAnimated = true;
+        observer.disconnect();
+      }
+    },
+    {
+      threshold: 0.1,
+      rootMargin: "0px 0px -40px 0px",
+    }
+  );
+
+  elements.forEach((element) => {
+    observer.observe(element);
+  });
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initBlogAnimation);
+} else {
+  initBlogAnimation();
+}

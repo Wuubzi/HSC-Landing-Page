@@ -146,6 +146,23 @@ export const labels = {
     "working.description":
       "Únete a un equipo apasionado por construir el futuro. Buscamos personas comprometidas, creativas y con ganas de crecer.",
     "working.button": "Subir CV",
+    "working.modal.title": "Únete a Nuestro Equipo",
+    "working.modal.subtitle": "Comparte tu CV y datos de contacto",
+    "working.modal.upload-text":
+      " Arrastra tu CV aquí o haz clic para seleccionar",
+    "working.modal.upload-subtext":
+      " Formatos permitidos: PDF, DOC, DOCX (máx. 5MB)",
+    "working.modal.fullname": "Nombre Completo",
+    "working.modal.email": "Correo Electrónico",
+    "working.modal.phone": "Teléfono",
+    "working.modal.position": "Posición de Interés",
+    "working.modal.position.placeholder": "Arquitecto, Ingeniero Civil",
+    "working.modal.optional-message": "Mensaje Personal (Opcional)",
+    "working.modal.optional-message.placeholder":
+      "Cuéntanos por qué te gustaría formar parte de nuestro equipo...",
+    "working.modal.button": "Enviar Aplicación",
+    "working.modal.success":
+      " ¡Gracias! Tu aplicación ha sido enviada exitosamente. Te contactaremos pronto.",
     "footer.description":
       "HSC se esfuerza por ser un líder intelectual en nuestra industria y brindar información continua y actualizaciones a nuestros clientes",
     "footer.link.title": "Enlaces Rapido",
@@ -185,7 +202,7 @@ export const labels = {
     "nav.desktop.emailAlt": "Email address",
     "nav.desktop.addressAlt": "Physical address",
     "hero.title.important": "Make it easier",
-    "hero.title": "to manage construction.",
+    "hero.title": " to manage construction.",
     "hero.description":
       "We provide services with qualified human talent in the design, development, and execution of civil works, industrial assembly, and metal structures, with over 15 years of national experience.",
     "hero.button": "Get to know us",
@@ -302,6 +319,22 @@ export const labels = {
     "working.description":
       "Join a team passionate about building the future. We are looking for committed, creative individuals eager to grow.",
     "working.button": "Upload CV",
+    "working.modal.title": "Join Our Team",
+    "working.modal.subtitle": "Share your CV and contact information",
+    "working.modal.upload-text": " Drag your CV here or click to select",
+    "working.modal.upload-subtext":
+      " Allowed formats: PDF, DOC, DOCX (max. 5MB)",
+    "working.modal.fullname": "Full Name",
+    "working.modal.email": "Email",
+    "working.modal.phone": "Phone Number",
+    "working.modal.position": "Position of Interest",
+    "working.modal.position.placeholder": "Architect, Civil Engineer",
+    "working.modal.optional-message": "Personal Message (Optional)",
+    "working.modal.optional-message.placeholder":
+      "Tell us why you’d like to be part of our team...",
+    "working.modal.button": "Submit Application",
+    "working.modal.success":
+      "Thank you! Your application has been successfully submitted. We’ll be in touch soon.",
     "footer.description":
       "HSC strives to be a thought leader in our industry and provide continuous information and updates to our clients.",
     "footer.link.title": "Quick Links",

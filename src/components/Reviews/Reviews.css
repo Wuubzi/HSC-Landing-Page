@@ -1,5 +1,9 @@
+.review-container {
+  overflow: hidden;
+}
+
 .first-background {
-  background-image: url("/assets/images/first-background-reviewsection.png");
+  background-image: url("/assets/images/first-background-reviewsection.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -17,7 +21,7 @@
 }
 
 .background-reviews {
-  background-image: url("/assets/images/background-reviewssection.png");
+  background-image: url("/assets/images/background-reviewssection.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -31,7 +35,7 @@
   background-color: #fff3cf;
   border-radius: 15px;
   width: 100%;
-  max-width: 650px;
+  max-width: 700px;
   aspect-ratio: 16 / 9;
   margin: 0 auto;
   text-align: center;
@@ -105,6 +109,34 @@
   opacity: 1 !important;
 }
 
+.animate-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+.animate-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.first-background.animate-scroll {
+  transform: translateY(-20px);
+}
+
+.first-background.animate-scroll.visible {
+  transform: translateY(0);
+}
+
+.review-card.animate-scroll {
+  transform: translateY(60px) rotateX(15deg);
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+.review-card.animate-scroll.visible {
+  transform: translateY(0) rotateX(0deg);
+}
+
 /* RESPONSIVE STYLES */
 
 /* Tablets */
@@ -139,4 +171,18 @@
 
 /* Pantallas Grandes */
 @media (min-width: 1536px) {
+  .review-card {
+    max-width: 900px;
+  }
+  .review-card .header-card h2 {
+    font-size: 2rem;
+  }
+
+  .review-card .header-card p {
+    font-size: 1.5rem;
+  }
+
+  .review-card .description p {
+    font-size: 1.7rem;
+  }
 }

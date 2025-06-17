@@ -5,25 +5,22 @@ const currentLang = Astro.currentLocale || "es";
 const translateLabels = useTranslations(currentLang as keyof typeof languages);
 import "./Reviews.css";
 const reviews = [
-  // first review
   {
-    image: "/assets/images/review-first-image.png",
+    image: "/assets/images/review-first-image.webp",
     imageAlt: translateLabels("reviews.card.first.imageAlt"),
     name: "Angeline Treny",
     occupation: "CEO Lomford",
     review: translateLabels("reviews.card.first.review"),
   },
-  //   second review
   {
-    image: "/assets/images/reviews-card-second-image.jpg",
+    image: "/assets/images/reviews-card-second-image.webp",
     imageAlt: translateLabels("reviews.card.second.imageAlt"),
     name: "Daniel Castro",
     occupation: "Operations Manager",
     review: translateLabels("reviews.card.second.review"),
   },
-  //   third review
   {
-    image: "/assets/images/reviews-card-third-image.jpg",
+    image: "/assets/images/reviews-card-third-image.webp",
     imageAlt: translateLabels("reviews.card.third.imageAlt"),
     name: " Ricardo Gómez",
     occupation: "Commercial Director",
@@ -32,17 +29,20 @@ const reviews = [
 ];
 ---
 
-<section id="reviews">
-  <div class="first-background">
+<section class="review-container" id="reviews">
+  <div class="first-background animate-scroll">
     <h1>{translateLabels("reviews.title")}</h1>
   </div>
-  <div class="background-reviews">
+  <div class="background-reviews animate-scroll">
     <div class="swiper SwiperReviews">
       <div class="swiper-wrapper">
         {
-          reviews.map((review) => (
+          reviews.map((review, index) => (
             <div class="swiper-slide">
-              <div class="review-card">
+              <div
+                class="review-card animate-scroll"
+                style={`animation-delay: ${index * 0.15}s`}
+              >
                 <div class="header-card">
                   <figure>
                     <img src={review.image} alt={review.imageAlt} />
@@ -62,4 +62,5 @@ const reviews = [
     </div>
   </div>
 </section>
+
 <script src="./Reviews.js"></script>

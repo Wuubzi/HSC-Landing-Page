@@ -1,0 +1,105 @@
+---
+// CVModal.astro
+import "./cvModal.css";
+import { useTranslations } from "../../i18n/util";
+import { languages } from "../../i18n/ui";
+const currentLang = Astro.currentLocale || "es";
+const translateLabels = useTranslations(currentLang as keyof typeof languages);
+---
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="close-btn" onclick="closeModal()">&times;</button>
+
+    <div class="modal-header">
+      <h2 class="modal-title">{translateLabels("working.modal.title")}</h2>
+      <p class="modal-subtitle">{translateLabels("working.modal.subtitle")}</p>
+    </div>
+
+    <form id="cvForm">
+      <div class="upload-area" id="uploadArea">
+        <input
+          type="file"
+          class="file-input"
+          id="fileInput"
+          accept=".pdf,.doc,.docx"
+          onchange="handleFileSelect(event)"
+        />
+        <span class="upload-icon">📄</span>
+        <div class="upload-text">
+          {translateLabels("working.modal.upload-text")}
+        </div>
+        <div class="upload-subtext">
+          {translateLabels("working.modal.upload-subtext")}
+        </div>
+      </div>
+
+      <div class="file-preview" id="filePreview">
+        <div class="file-info">
+          <div>
+            <div class="file-name" id="fileName"></div>
+            <div class="file-size" id="fileSize"></div>
+          </div>
+          <button type="button" class="remove-file" onclick="removeFile()"
+            >×</button
+          >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="fullName"
+          >{translateLabels("working.modal.fullname")} *</label
+        >
+        <input type="text" class="form-input" id="fullName" required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="email"
+          >{translateLabels("working.modal.email")} *</label
+        >
+        <input type="email" class="form-input" id="email" required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="phone"
+          >{translateLabels("working.modal.phone")}</label
+        >
+        <input type="tel" class="form-input" id="phone" />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="position"
+          >{translateLabels("working.modal.position")}</label
+        >
+        <input
+          type="text"
+          class="form-input"
+          id="position"
+          placeholder={translateLabels("working.modal.position.placeholder")}
+        />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="message"
+          >{translateLabels("working.modal.optional-message")}</label
+        >
+        <textarea
+          class="form-input form-textarea"
+          id="message"
+          placeholder={translateLabels(
+            "working.modal.optional-message.placeholder"
+          )}></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submitBtn">
+        {translateLabels("working.modal.button")}
+      </button>
+
+      <div class="success-message" id="successMessage">
+        {translateLabels("working.modal.success")}
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="./cvModal.js"></script>

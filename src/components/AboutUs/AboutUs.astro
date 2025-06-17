@@ -8,14 +8,16 @@ import "./AboutUs.css";
 
 <section id="about-us">
   <div class="about-us-section-container">
-    <div class="right-section">
-      <h1>
+    <div class="right-section scroll-animate">
+      <h1 class="fade-in-up" data-delay="0">
         {translateLabels("aboutUs.title")}
         <span>{translateLabels("aboutUs.title.important")}</span>
       </h1>
-      <p>{translateLabels("aboutUs.description")}</p>
-      <ul>
-        <li>
+      <p class="fade-in-up" data-delay="200">
+        {translateLabels("aboutUs.description")}
+      </p>
+      <ul class="fade-in-up" data-delay="400">
+        <li class="slide-in-left" data-delay="600">
           <figure>
             <img
               src="/assets/Icons/check.svg"
@@ -24,7 +26,7 @@ import "./AboutUs.css";
           </figure>
           <p>{translateLabels("aboutUs.list.first")}</p>
         </li>
-        <li>
+        <li class="slide-in-left" data-delay="700">
           <figure>
             <img
               src="/assets/Icons/check.svg"
@@ -33,7 +35,7 @@ import "./AboutUs.css";
           </figure>
           <p>{translateLabels("aboutUs.list.second")}</p>
         </li>
-        <li>
+        <li class="slide-in-left" data-delay="800">
           <figure>
             <img
               src="/assets/Icons/check.svg"
@@ -42,7 +44,7 @@ import "./AboutUs.css";
           </figure>
           <p>{translateLabels("aboutUs.list.third")}</p>
         </li>
-        <li>
+        <li class="slide-in-left" data-delay="900">
           <figure>
             <img
               src="/assets/Icons/check.svg"
@@ -51,7 +53,7 @@ import "./AboutUs.css";
           </figure>
           <p>{translateLabels("aboutUs.list.four")}</p>
         </li>
-        <li>
+        <li class="slide-in-left" data-delay="1000">
           <figure>
             <img
               src="/assets/Icons/check.svg"
@@ -62,20 +64,20 @@ import "./AboutUs.css";
         </li>
       </ul>
     </div>
-    <div class="left-section">
+    <div class="left-section scroll-animate">
       <div class="bento-container">
-        <div class="first-card">
+        <div class="first-card scale-in" data-delay="200">
           <figure>
             <img
-              src="/assets/images/first-image-card-about-us.png"
+              src="/assets/images/first-image-card-about-us.webp"
               alt={translateLabels("aboutUs.bento.first.imageAlt")}
             />
           </figure>
         </div>
-        <div class="second-card">
+        <div class="second-card scale-in" data-delay="400">
           <figure class="image-container">
             <img
-              src="/assets/images/second-image-card-about-us.png"
+              src="/assets/images/second-image-card-about-us.webp"
               alt={translateLabels("aboutUs.bento.second.imageAlt")}
             />
           </figure>
@@ -92,10 +94,10 @@ import "./AboutUs.css";
             </div>
           </div>
         </div>
-        <div class="third-card">
+        <div class="third-card scale-in" data-delay="600">
           <figure class="image-container">
             <img
-              src="/assets/images/second-image-card-about-us.png"
+              src="/assets/images/second-image-card-about-us.webp"
               alt={translateLabels("aboutUs.bento.third.imageAlt")}
             />
           </figure>
@@ -112,10 +114,10 @@ import "./AboutUs.css";
             </div>
           </div>
         </div>
-        <div class="four-card">
+        <div class="four-card scale-in" data-delay="800">
           <figure>
             <img
-              src="/assets/images/four-image-card-about-us.png"
+              src="/assets/images/four-image-card-about-us.webp"
               alt={translateLabels("aboutUs.bento.four.imageAlt")}
             />
           </figure>
@@ -124,3 +126,5 @@ import "./AboutUs.css";
     </div>
   </div>
 </section>
+
+<script src="./AboutUs.js"></script>

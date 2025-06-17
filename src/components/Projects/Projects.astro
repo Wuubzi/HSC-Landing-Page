@@ -10,21 +10,21 @@ const projects = [
   {
     title: translateLabels("project-card-first-title"),
     description: translateLabels("project-card-first-description"),
-    image: "/assets/images/project-example-first-card.png",
+    image: "/assets/images/project-example-first-card.webp",
     imageAlt: translateLabels("project-card-first-alt"),
   },
   //   Second Project
   {
     title: translateLabels("project-card-second-title"),
     description: translateLabels("project-card-second-description"),
-    image: "/assets/images/project-example-second-card.png",
+    image: "/assets/images/project-example-second-card.webp",
     imageAlt: translateLabels("project-card-second-alt"),
   },
   //   Third Project
   {
     title: translateLabels("project-card-third-title"),
     description: translateLabels("project-card-third-description"),
-    image: "/assets/images/project-example-third-card.png",
+    image: "/assets/images/project-example-third-card.webp",
     imageAlt: translateLabels("project-card-third-alt"),
   },
 ];
@@ -33,32 +33,46 @@ const projects = [
 <section id="projects">
   <div class="project-section-container">
     <div class="bg-section">
-      <figure class="shape-container">
-        <img class="shape" src="/assets/Icons/shape.svg" alt="" />
+      <figure class="shape-container fade-in-up" data-delay="0">
+        <img
+          class="shape floating-animation"
+          src="/assets/Icons/shape.svg"
+          alt=""
+        />
       </figure>
-      <h1>{translateLabels("project.title")}</h1>
+      <h1 class="slide-in-up" data-delay="200">
+        {translateLabels("project.title")}
+      </h1>
     </div>
-    <div class="swiper SwiperProject">
+    <div class="swiper SwiperProject fade-in-up" data-delay="400">
       <div class="project-card-container swiper-wrapper">
         {
-          projects.map((project) => (
+          projects.map((project, index) => (
             <div class="swiper-slide">
-              <CardProjects
-                title={project.title}
-                description={project.description}
-                image={project.image}
-                imageAlt={project.imageAlt}
-              />
+              <div
+                class="card-wrapper slide-in-up"
+                data-delay={600 + index * 200}
+              >
+                <CardProjects
+                  title={project.title}
+                  description={project.description}
+                  image={project.image}
+                  imageAlt={project.imageAlt}
+                />
+              </div>
             </div>
           ))
         }
       </div>
       <!-- Navigation buttons -->
       <div class="custom-navigation">
-        <div class="swiper-button-prev custom-prev"></div>
-        <div class="swiper-button-next custom-next"></div>
+        <div class="swiper-button-prev custom-prev bounce-in" data-delay="1000">
+        </div>
+        <div class="swiper-button-next custom-next bounce-in" data-delay="1200">
+        </div>
       </div>
     </div>
   </div>
 </section>
+
 <script src="./Projects.js"></script>

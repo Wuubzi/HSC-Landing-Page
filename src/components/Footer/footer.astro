@@ -9,17 +9,15 @@ const allBlogs = await getCollection("blogs", ({ data }) => {
   return data.lang === currentLang;
 });
 
-
 const sortedBlogs = allBlogs.sort(
   (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
 );
-
 ---
 
 <footer>
   <div class="footer-container">
     <div class="footer-content">
-      <div class="footer-first-section">
+      <div class="footer-first-section animate-scroll">
         <figure>
           <img
             src="/assets/Icons/HSC.svg"
@@ -30,88 +28,93 @@ const sortedBlogs = allBlogs.sort(
           {translateLabels("footer.description")}
         </p>
         <div class="social-media-container">
-          <div class="social-media">
+          <div class="social-media" id="facebook">
             <figure>
               <img src="/assets/Icons/facebook.svg" alt="" />
             </figure>
           </div>
-          <div class="social-media">
+          <div class="social-media" id="twitter">
             <figure>
               <img src="/assets/Icons/twitter.svg" alt="" />
             </figure>
           </div>
-          <div class="social-media">
+          <div class="social-media" id="linkeind">
             <figure>
               <img src="/assets/Icons/linkeind.svg" alt="" />
             </figure>
           </div>
-          <div class="social-media">
+          <div class="social-media" id="instagram">
             <figure>
               <img src="/assets/Icons/instagram.svg" alt="" />
             </figure>
           </div>
         </div>
       </div>
-      <div class="footer-second-section">
+      <div class="footer-second-section animate-scroll">
         <h2>{translateLabels("footer.link.title")}</h2>
         <ul>
           <li>
             <figure>
-              <img src="/assets/Icons/footer-icon.svg" alt="">
+              <img src="/assets/Icons/footer-icon.svg" alt="" />
             </figure>
-            <a>
+            <a href="#about-us">
               {translateLabels("footer.link.first")}
             </a>
           </li>
           <li>
             <figure>
-              <img src="/assets/Icons/footer-icon.svg" alt="">
+              <img src="/assets/Icons/footer-icon.svg" alt="" />
             </figure>
-            <a>
+            <a href="#services">
               {translateLabels("footer.link.second")}
             </a>
           </li>
           <li>
             <figure>
-              <img src="/assets/Icons/footer-icon.svg" alt="">
+              <img src="/assets/Icons/footer-icon.svg" alt="" />
             </figure>
-            <a>
+            <a href="#we-talent">
               {translateLabels("footer.link.third")}
             </a>
           </li>
           <li>
             <figure>
-              <img src="/assets/Icons/footer-icon.svg" alt="">
+              <img src="/assets/Icons/footer-icon.svg" alt="" />
             </figure>
-            <a>
+            <a href="#members">
               {translateLabels("footer.link.four")}
             </a>
           </li>
           <li>
             <figure>
-              <img src="/assets/Icons/footer-icon.svg" alt="">
+              <img src="/assets/Icons/footer-icon.svg" alt="" />
             </figure>
-            <a>
+            <a href="#reviews">
               {translateLabels("footer.link.fifth")}
             </a>
           </li>
         </ul>
       </div>
-      <div class="footer-third-section">
+      <div class="footer-third-section animate-scroll">
         <h2>{translateLabels("footer.blog.title")}</h2>
         <div class="blogs-container">
-         {sortedBlogs.map((blog) => (
-                  <div class="blog-item">
-            <figure>
-              <img src={blog.data.image} alt="" />
-            </figure>
-            <p>{blog.data.description}</p>
-          </div>
-          ))}
-    
+          {
+            sortedBlogs.map((blog, index) => (
+              <div
+                class="blog-item animate-scroll"
+                style={`animation-delay: ${index * 0.1}`}
+                data-slug={blog.slug}
+              >
+                <figure>
+                  <img src={blog.data.image} alt="" />
+                </figure>
+                <p>{blog.data.description}</p>
+              </div>
+            ))
+          }
         </div>
       </div>
-      <div class="footer-four-section">
+      <div class="footer-four-section animate-scroll">
         <h2>{translateLabels("footer.contact.title")}</h2>
         <div class="contact-container">
           <div class="contact-item">
@@ -120,13 +123,13 @@ const sortedBlogs = allBlogs.sort(
             </figure>
             <p>Cra 6 No 14 - 44 Palmar de Varela - Atlantico</p>
           </div>
-          <div class="contact-item"> 
+          <div class="contact-item">
             <figure>
               <img src="/assets/Icons/phone.svg" alt="" />
             </figure>
             <div>
-            <p>(+57) 3012886951</p>
-            <p>(+57) 3004989512</p>
+              <p>(+57) 3012886951</p>
+              <p>(+57) 3004989512</p>
             </div>
           </div>
           <div class="contact-item">
@@ -138,8 +141,10 @@ const sortedBlogs = allBlogs.sort(
         </div>
       </div>
     </div>
-    <div class="copyright-content">
+    <div class="copyright-content animate-scroll">
       <p>Copyright @2025 HSC.</p>
     </div>
   </div>
 </footer>
+
+<script src="./footer.js"></script>

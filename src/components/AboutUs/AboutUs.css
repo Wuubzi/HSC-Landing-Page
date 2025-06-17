@@ -4,6 +4,7 @@
   justify-content: center;
   align-items: center;
   padding: 2rem;
+  overflow: hidden;
 }
 
 .about-us-section-container img {
@@ -252,10 +253,128 @@
   border-radius: 24px;
 }
 
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slide-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scale-in {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scale-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fade-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.bento-container .first-card,
+.bento-container .second-card,
+.bento-container .third-card,
+.bento-container .four-card {
+  transition: transform 0.3s ease;
+}
+
+.bento-container .first-card:hover,
+.bento-container .second-card:hover,
+.bento-container .third-card:hover,
+.bento-container .four-card:hover {
+  transform: translateY(-5px);
+}
+
+.about-us-section-container .right-section ul li {
+  transition: transform 0.3s ease;
+}
+
+.about-us-section-container .right-section ul li:hover {
+  transform: translateX(10px);
+}
+
+.about-us-section-container .right-section h1 {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-us-section-container .right-section h1::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  animation: typewriter 2s steps(40) 1s both;
+}
+
+@keyframes typewriter {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-up,
+  .slide-in-left,
+  .scale-in,
+  .fade-in-right {
+    transition: none;
+  }
+
+  .bento-container img {
+    transform: none !important;
+  }
+
+  .right-section h1::after {
+    display: none;
+  }
+}
+
 /* RESPONSIVE STYLES */
 
 /* Tablets */
-@media (min-width: 728px) {
+
+@media (max-width: 768px) {
+  .fade-in-up,
+  .slide-in-left,
+  .scale-in {
+    transform: translateY(20px);
+  }
+
+  .slide-in-left {
+    transform: translateX(-20px);
+  }
 }
 
 /* Laptos Pequeñas */
@@ -321,5 +440,13 @@
 
   .about-us-section-container .right-section p {
     font-size: 1.8rem;
+  }
+
+  .about-us-section-container
+    .left-section
+    .second-card
+    .about-text-container
+    p {
+    font-size: 1.2rem;
   }
 }

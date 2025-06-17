@@ -9,11 +9,16 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/node": "^9.2.2",
     "astro": "^5.8.2",
+    "formidable": "^3.5.4",
     "marked": "^15.0.12",
+    "nodemailer": "^7.0.3",
     "swiper": "^11.2.8"
   },
   "devDependencies": {
-    "@types/marked": "^5.0.2"
+    "@types/formidable": "^3.4.5",
+    "@types/marked": "^5.0.2",
+    "@types/nodemailer": "^6.4.17"
   }
 }

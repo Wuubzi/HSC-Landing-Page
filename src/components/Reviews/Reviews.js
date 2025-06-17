@@ -54,3 +54,43 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("resize", handleResize);
   }
 });
+
+let reviewsAnimated = false;
+
+function initReviewsAnimation() {
+  if (reviewsAnimated) return;
+
+  const elements = document.querySelectorAll("#reviews .animate-scroll");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !reviewsAnimated) {
+          entry.target.classList.add("visible");
+        }
+      });
+
+      const allVisible = Array.from(elements).every((el) =>
+        el.classList.contains("visible")
+      );
+      if (allVisible) {
+        reviewsAnimated = true;
+        observer.disconnect();
+      }
+    },
+    {
+      threshold: 0.15,
+      rootMargin: "0px 0px -30px 0px",
+    }
+  );
+
+  elements.forEach((element) => {
+    observer.observe(element);
+  });
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initReviewsAnimation);
+} else {
+  initReviewsAnimation();
+}

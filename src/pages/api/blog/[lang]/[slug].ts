@@ -56,7 +56,7 @@ export const GET: APIRoute = async ({ params }) => {
             <div class="modal-tags">
               <strong>${translateLabels("blog.tags")}</strong>
               ${blog.data.tags
-                .map((tag) => `<span class="modal-tag">${tag}</span>`)
+                .map((tag) => `<span class="modal-tag">${tag} </span>`)
                 .join("")}
             </div>
           `
@@ -84,16 +84,16 @@ export const GET: APIRoute = async ({ params }) => {
 };
 
 export async function getStaticPaths() {
-  const { getCollection } = await import('astro:content');
+  const { getCollection } = await import("astro:content");
   const blogs = await getCollection("blogs");
 
-  return blogs.map(blog => {
-    const [lang, ...slugParts ] = blog.slug.split('/')
+  return blogs.map((blog) => {
+    const [lang, ...slugParts] = blog.slug.split("/");
     return {
       params: {
         lang,
-        slug: slugParts.join('/')
-      }
-    }
-  })
+        slug: slugParts.join("/"),
+      },
+    };
+  });
 }

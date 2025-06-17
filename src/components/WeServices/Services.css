@@ -2,10 +2,11 @@ section {
   padding: 0;
   margin: 0;
   height: min-content;
+  overflow: hidden;
 }
 
 .service-section-container {
-  background-image: url("/assets/images/backgroung-services.png");
+  background-image: url("/assets/images/backgroung-services.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -158,6 +159,173 @@ section {
 .swiper-pagination-bullet {
   background: rgba(255, 255, 255, 0.5) !important;
   opacity: 1 !important;
+}
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fade-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fade-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-in-up {
+  opacity: 0;
+  transform: translateY(50px) scale(0.95);
+  transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slide-in-up.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.bounce-in {
+  opacity: 0;
+  transform: scale(0.3);
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.bounce-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+}
+
+.blue-card {
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-origin: center;
+}
+
+.card {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-origin: center;
+  cursor: pointer;
+}
+
+.background-icon {
+  transition: transform 0.3s ease;
+}
+
+.card:hover .background-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.right-section h1 {
+  position: relative;
+  overflow: hidden;
+}
+
+.right-section h1.visible::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  animation: typewriter 1.5s steps(30) 0.5s both;
+}
+
+@keyframes typewriter {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  transition: all 0.3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+.swiper-pagination {
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet {
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet:hover {
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .fade-in-up,
+  .fade-in-left,
+  .fade-in-right,
+  .slide-in-up {
+    transform: translateY(20px);
+  }
+
+  .fade-in-left {
+    transform: translateX(-20px);
+  }
+
+  .fade-in-right {
+    transform: translateX(20px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-up,
+  .fade-in-left,
+  .fade-in-right,
+  .slide-in-up,
+  .bounce-in,
+  .fade-in {
+    transition: none;
+  }
+
+  service-section-container .right-section h1::after {
+    display: none;
+  }
+
+  .blue-card {
+    transform: none !important;
+  }
 }
 
 /* Responsive Styles */

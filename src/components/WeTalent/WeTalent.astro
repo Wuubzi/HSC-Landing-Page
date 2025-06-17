@@ -9,85 +9,111 @@ import "./WeTalent.css";
 <section id="we-talent">
   <div class="wetalent-container">
     <div class="right-section">
-      <h1>
+      <h1 class="fade-in-up" data-delay="0" style="font-size: 2rem;">
         {translateLabels("wetalent.title")}
-        <span>{translateLabels("wetalent.title.important")}</span>
+        <span class="slide-in-left" data-delay="200"
+          >{translateLabels("wetalent.title.important")}</span
+        >
       </h1>
-      <p>{translateLabels("wetalent.description")}</p>
+      <p class="fade-in-up" data-delay="400">
+        {translateLabels("wetalent.description")}
+      </p>
+
       <div class="talent-cards-container">
-        <div class="first-card wetalent-card">
+        <div class="first-card wetalent-card slide-in-up" data-delay="600">
           <figure class="bg-card">
             <img
-              src="/assets/images/wetalent-first-card.png"
+              src="/assets/images/wetalent-first-card.webp"
               alt={translateLabels("wetalent.first.card.backgroundAlt")}
             />
           </figure>
           <div class="content-container">
-            <figure>
+            <figure class="zoom-in" data-delay="800">
               <img
                 src="/assets/Icons/wetalent-first-icon.svg"
                 alt={translateLabels("wetalent.first.card.iconAlt")}
               />
             </figure>
-            <h2>
+            <h2 class="fade-in-up" data-delay="900">
               {translateLabels("wetalent.first.card.title")}
             </h2>
           </div>
         </div>
-        <div class="second-card wetalent-card">
+
+        <div class="second-card wetalent-card slide-in-up" data-delay="800">
           <figure class="bg-card">
             <img
-              src="/assets/images/wetalent-second-card.png"
+              src="/assets/images/wetalent-second-card.webp"
               alt={translateLabels("wetalent.second.card.backgroundAlt")}
             />
           </figure>
           <div class="content-container">
-            <figure>
+            <figure class="zoom-in" data-delay="1000">
               <img
                 src="/assets/Icons/wetalent-second-icon.svg"
-                alt={translateLabels("wetalent.first.card.iconAlt")}
+                alt={translateLabels("wetalent.second.card.iconAlt")}
               />
             </figure>
-            <h2>
-              {translateLabels("wetalent.first.card.title")}
+            <h2 class="fade-in-up" data-delay="1100">
+              {translateLabels("wetalent.second.card.title")}
             </h2>
           </div>
         </div>
-        <div class="third-card wetalent-card">
+
+        <div class="third-card wetalent-card slide-in-up" data-delay="1000">
           <figure class="bg-card">
             <img
-              src="/assets/images/wetalent-third-card.png"
+              src="/assets/images/wetalent-third-card.webp"
               alt={translateLabels("wetalent.third.card.backgroundAlt")}
             />
           </figure>
           <div class="content-container">
-            <figure>
+            <figure class="zoom-in" data-delay="1200">
               <img
                 src="/assets/Icons/wetalent-third-icon.svg"
                 alt={translateLabels("wetalent.third.card.iconAlt")}
               />
             </figure>
-            <h2>
+            <h2 class="fade-in-up" data-delay="1300">
               {translateLabels("wetalent.third.card.title")}
             </h2>
           </div>
         </div>
       </div>
     </div>
+
     <div class="left-section">
-      <div class="video-container">
+      <div class="video-container fade-in-right" data-delay="500">
         <div class="video-placeholder">
           <video src="/assets/videos/example.mp4"></video>
         </div>
         <div class="overlay-wrapper">
-          <div class="play-overlay" onclick="togglePlay()">
-            <div class="ripple-effect ripple-1"></div>
-            <div class="ripple-effect ripple-2"></div>
-            <div class="ripple-effect ripple-3"></div>
-            <div class="play-button"></div>
+          <div
+            class="play-overlay bounce-in"
+            data-delay="1400"
+            onclick="togglePlay()"
+          >
+            <div
+              class="ripple-effect ripple-1 pulse-animation"
+              data-delay="1600"
+            >
+            </div>
+            <div
+              class="ripple-effect ripple-2 pulse-animation"
+              data-delay="1700"
+            >
+            </div>
+            <div
+              class="ripple-effect ripple-3 pulse-animation"
+              data-delay="1800"
+            >
+            </div>
+            <div class="play-button rotate-in" data-delay="1500"></div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<script src="./WeTalent.js"></script>

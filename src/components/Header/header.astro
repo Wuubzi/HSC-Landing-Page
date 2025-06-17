@@ -143,14 +143,25 @@ const translateLabels = useTranslations(currentLang as keyof typeof languages);
 
 <!-- MOBILE HEADER -->
 <div class="header-container">
-  <!-- Header Logo -->
-  <figure class="header-logo-container">
-    <img
-      class="header-logo"
-      src="/assets/Icons/HSC.svg"
-      alt={translateLabels("nav.logoAlt")}
-    />
-  </figure>
+  <div class="header-pre-nav">
+    <!-- Header Logo -->
+    <figure class="header-logo-container">
+      <img
+        class="header-logo"
+        src="/assets/Icons/HSC.svg"
+        alt={translateLabels("nav.logoAlt")}
+      />
+    </figure>
+
+    <!-- Hamburguer Menu -->
+    <figure class="header-hamburguer-container">
+      <img
+        class="header-hamburguer"
+        src="/assets/Icons/hamburguer.svg"
+        alt={translateLabels("nav.hamburguerAlt")}
+      />
+    </figure>
+  </div>
   <!-- Navigation Menu -->
   <nav class="header-nav">
     <!-- Close Menu Navigation -->
@@ -221,13 +232,5 @@ const translateLabels = useTranslations(currentLang as keyof typeof languages);
       <button class="contact-button">{translateLabels("nav.contact")}</button>
     </div>
   </nav>
-  <!-- Hamburguer Menu -->
-  <figure class="header-hamburguer-container">
-    <img
-      class="header-hamburguer"
-      src="/assets/Icons/hamburguer.svg"
-      alt={translateLabels("nav.hamburguerAlt")}
-    />
-  </figure>
 </div>
 <script src="./header.js"></script>

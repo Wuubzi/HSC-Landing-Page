@@ -9,17 +9,21 @@ import "./Services.css";
 <section id="services">
   <div class="service-section-container">
     <div class="right-section">
-      <div class="blue-card"></div>
-      <h1>{translateLabels("service.title")}</h1>
-      <p>{translateLabels("service.description")}</p>
+      <div class="blue-card fade-in-left" data-delay="0"></div>
+      <h1 class="servive-title fade-in-up" data-delay="200">
+        {translateLabels("service.title")}
+      </h1>
+      <p class="fade-in-up" data-delay="400">
+        {translateLabels("service.description")}
+      </p>
     </div>
 
     <div class="left-section">
-      <div class="swiper SwiperService">
+      <div class="swiper SwiperService fade-in-right" data-delay="300">
         <div class="card-container swiper-wrapper">
           <!-- CARD 1 -->
           <div class="swiper-slide">
-            <div class="card card-1">
+            <div class="card card-1" data-delay="600">
               <div class="background-icon">
                 <figure>
                   <img
@@ -35,7 +39,7 @@ import "./Services.css";
 
           <!-- CARD 2 -->
           <div class="swiper-slide">
-            <div class="card card-2">
+            <div class="card card-2" data-delay="800">
               <div class="background-icon">
                 <figure>
                   <img
@@ -51,7 +55,7 @@ import "./Services.css";
 
           <!-- CARD 3 -->
           <div class="swiper-slide">
-            <div class="card card-3">
+            <div class="card card-3" data-delay="1000">
               <div class="background-icon">
                 <figure>
                   <img
@@ -66,12 +70,13 @@ import "./Services.css";
           </div>
         </div>
         <!-- Navigation buttons -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next bounce-in" data-delay="1200"></div>
+        <div class="swiper-button-prev bounce-in" data-delay="1400"></div>
 
-        <div class="swiper-pagination"></div>
+        <div class="swiper-pagination fade-in" data-delay="1600"></div>
       </div>
     </div>
   </div>
 </section>
+
 <script src="./Services.js"></script>

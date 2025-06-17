@@ -5,9 +5,48 @@
   display: flex;
   flex-direction: column;
   gap: 3rem;
+  overflow: hidden;
 }
 
 .blog-container h1 {
   font-size: 1.6rem;
   font-size: "Work-sans" sans serif;
+}
+
+.animate-scroll {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.blue-background.animate-scroll {
+  transform: scale(0.8) translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.blue-background.animate-scroll.visible {
+  transform: scale(1) translateY(0);
+}
+
+h1.animate-scroll {
+  transform: translateY(-30px);
+}
+
+h1.animate-scroll.visible {
+  transform: translateY(0);
+}
+
+.blog-card-wrapper.animate-scroll {
+  transform: translateY(50px) scale(0.95);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.blog-card-wrapper.animate-scroll.visible {
+  transform: translateY(0) scale(1);
 }
