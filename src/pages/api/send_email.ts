@@ -2,18 +2,18 @@ import type { APIRoute } from "astro";
 import { createTransport } from "nodemailer";
 import type { Attachment } from "nodemailer/lib/mailer";
 
-// Configuración del transportador de email
+// Configuraci贸n del transportador de email
 const transporter = createTransport({
-  host: import.meta.env.SMTP_HOST || "smtp.gmail.com",
-  port: parseInt(import.meta.env.SMTP_PORT || "587"),
+  host: import.meta.env.SMTP_HOST,
+  port: parseInt(import.meta.env.SMTP_PORT),
   secure: false, // true para 465, false para otros puertos
   auth: {
-    user: "carlosasalas321@gmail.com",
-    pass: "nkyh qdpq cnor qcnh",
+    user: import.meta.env.SMTP_USER,
+    pass: import.meta.env.SMTP_PASS,
   },
 });
 
-// Función para procesar archivos adjuntos
+// Funci贸n para procesar archivos adjuntos
 async function processAttachments(
   files: FileList | File[]
 ): Promise<Attachment[]> {
@@ -22,7 +22,7 @@ async function processAttachments(
   try {
     for (const file of files) {
       if (file instanceof File) {
-        // Validar tamaño del archivo (máximo 10MB)
+        // Validar tama帽o del archivo (m谩ximo 10MB)
         if (file.size > 10 * 1024 * 1024) {
           throw new Error(
             `El archivo ${file.name} es demasiado grande (máximo 10MB)`
@@ -57,7 +57,7 @@ async function processAttachments(
   return attachments;
 }
 
-// Función para validar y sanitizar entrada
+// Funci贸n para validar y sanitizar entrada
 function validateAndSanitize(data: any) {
   const errors: string[] = [];
 
@@ -76,7 +76,7 @@ function validateAndSanitize(data: any) {
   } else {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(data.correoElectronico)) {
-      errors.push("El correo electrónico no tiene un formato válido");
+      errors.push("El correo electrṕnico no tiene un formato válido");
     }
   }
 
@@ -87,7 +87,7 @@ function validateAndSanitize(data: any) {
   ) {
     const phoneRegex = /^[\d\s\-\+\(\)]+$/;
     if (!phoneRegex.test(data.telefono)) {
-      errors.push("El teléfono contiene caracteres no válidos");
+      errors.push("El telófono contiene caracteres no válidos");
     }
   }
 
@@ -157,7 +157,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     const cvFile = formData.get("cv") as File;
 
-    // Validar que el CV esté presente
+    // Validar que el CV est茅 presente
     if (!cvFile || !(cvFile instanceof File) || cvFile.size === 0) {
       return new Response(
         JSON.stringify({
@@ -224,7 +224,7 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    // Verificar configuración de email
+    // Verificar configuraci贸n de email
     if (!import.meta.env.SMTP_USER || !import.meta.env.SMTP_PASS) {
       console.error("Variables de entorno SMTP no configuradas");
       return new Response(
@@ -245,7 +245,7 @@ export const POST: APIRoute = async ({ request }) => {
     // Configurar email principal
     const mailOptions = {
       from: `"${nombreCompleto}" <${import.meta.env.SMTP_USER}>`,
-      to: import.meta.env.RECIPIENT_EMAIL || "carlosasalas321@gmail.com",
+      to: import.meta.env.RECIPIENT_EMAIL,
       subject: `Nueva Aplicación - ${
         posicionInteres || "Posición no especificada"
       }`,
@@ -269,7 +269,7 @@ export const POST: APIRoute = async ({ request }) => {
                 telefono
                   ? `
               <tr>
-                <td style="padding: 8px 0; font-weight: bold; color: #6b7280;">Teléfono:</td>
+                <td style="padding: 8px 0; font-weight: bold; color: #6b7280;">Telófono:</td>
                 <td style="padding: 8px 0; color: #374151;">${telefono}</td>
               </tr>
               `
@@ -279,7 +279,7 @@ export const POST: APIRoute = async ({ request }) => {
                 posicionInteres
                   ? `
               <tr>
-                <td style="padding: 8px 0; font-weight: bold; color: #6b7280;">Posición de Interés:</td>
+                <td style="padding: 8px 0; font-weight: bold; color: #6b7280;">Posición de Interós:</td>
                 <td style="padding: 8px 0; color: #374151;">${posicionInteres}</td>
               </tr>
               `
@@ -336,7 +336,7 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    // Enviar email de confirmación al candidato
+    // Enviar email de confirmaci贸n al candidato
     try {
       const confirmationMailOptions = {
         from: import.meta.env.SMTP_USER,
@@ -351,9 +351,9 @@ export const POST: APIRoute = async ({ request }) => {
             </p>
             
             <p style="color: #374151; line-height: 1.6;">
-              Hemos recibido tu aplicación para ${
+              Hemos recibido tu aplicacion para ${
                 posicionInteres
-                  ? `la posición de <strong>${posicionInteres}</strong>`
+                  ? `la posicion de <strong>${posicionInteres}</strong>`
                   : "unirte a nuestro equipo"
               }. 
               Tu CV ha sido recibido correctamente y nuestro equipo de recursos humanos lo revisará en los próximos días.
@@ -366,11 +366,11 @@ export const POST: APIRoute = async ({ request }) => {
                 ${telefono ? `<li>📱 Teléfono: ${telefono}</li>` : ""}
                 ${
                   posicionInteres
-                    ? `<li>💼 Posición: ${posicionInteres}</li>`
+                    ? `<li>💼  Posición: ${posicionInteres}</li>`
                     : ""
                 }
-                <li>📎 CV: ${cvFile.name}</li>
-                <li>📅 Fecha: ${new Date().toLocaleDateString("es-ES")}</li>
+                <li>📎  CV: ${cvFile.name}</li>
+                <li>📅  Fecha: ${new Date().toLocaleDateString("es-ES")}</li>
               </ul>
             </div>
             
@@ -394,14 +394,14 @@ export const POST: APIRoute = async ({ request }) => {
 
       await transporter.sendMail(confirmationMailOptions);
     } catch (error) {
-      console.error("Error enviando email de confirmación:", error);
-      // No fallar si el email de confirmación falla
+      console.error("Error enviando email de confirmaci贸n:", error);
+      // No fallar si el email de confirmaci贸n falla
     }
 
     return new Response(
       JSON.stringify({
         success: true,
-        message: "Aplicación enviada exitosamente",
+        message: "Aplicaci贸n enviada exitosamente",
         messageId: info.messageId,
       }),
       {
@@ -447,7 +447,7 @@ export const OPTIONS: APIRoute = async () => {
 export const GET: APIRoute = async () => {
   return new Response(
     JSON.stringify({
-      message: "API de envío de emails funcionando correctamente",
+      message: "API de env铆o de emails funcionando correctamente",
       timestamp: new Date().toISOString(),
       status: "healthy",
     }),

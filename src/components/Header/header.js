@@ -63,12 +63,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  // --- Active Navigation Highlight ---
   const initActiveNavHighlight = () => {
     const allNavLinks = [...navItems, ...desktopNavItems];
     const sections = document.querySelectorAll("section[id]");
 
-    if (sections.length === 0) return; // No hay secciones para observar
+    if (sections.length === 0) return;
 
     const observerOptions = {
       rootMargin: "-20% 0px -80% 0px",
@@ -78,10 +77,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // Remover clase active de todos los enlaces
           allNavLinks.forEach((link) => {
             link.classList.remove("active-nav");
-            // También remover de los elementos padre en desktop
             const parentItem = link.closest(".header-desktop-nav-item");
             if (parentItem) {
               parentItem.classList.remove("active-nav");
