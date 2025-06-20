@@ -5,6 +5,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const nav = document.querySelector(".header-nav");
   const navItems = document.querySelectorAll(".header-nav a"); // Select only 'a' tags for navigation links
 
+  // --- Desktop Navigation Elements ---
+  const desktopNavItems = document.querySelectorAll(
+    ".header-desktop-nav-item a"
+  );
+
   // --- Desktop Language Dropdown Elements ---
   const trigger = document.querySelector(".language-trigger");
   const dropdown = document.getElementById("language-dropdown");
@@ -29,6 +34,69 @@ document.addEventListener("DOMContentLoaded", function () {
     )}`;
     window.open(mailtoLink);
   };
+
+  // --- Smooth Scroll Function ---
+  const smoothScrollToSection = (targetId) => {
+    const targetElement = document.querySelector(targetId);
+
+    if (targetElement) {
+      // Ajustar la altura del header según el dispositivo
+      const isMobile = window.innerWidth < 1024;
+      const headerHeight = isMobile ? 100 : 120; // Ajusta estos valores según tu header
+      const targetPosition = targetElement.offsetTop - headerHeight;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  // --- Handle Navigation Click with Smooth Scroll ---
+  const handleNavClick = (event) => {
+    const href = event.target.getAttribute("href");
+
+    // Solo procesar si es un enlace a una sección (comienza con #)
+    if (href && href.startsWith("#")) {
+      event.preventDefault();
+      smoothScrollToSection(href);
+    }
+  };
+
+  // --- Active Navigation Highlight ---
+  const initActiveNavHighlight = () => {
+    const allNavLinks = [...navItems, ...desktopNavItems];
+    const sections = document.querySelectorAll("section[id]");
+
+    if (sections.length === 0) return; // No hay secciones para observar
+
+    const observerOptions = {
+      rootMargin: "-20% 0px -80% 0px",
+      threshold: 0,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Remover clase active de todos los enlaces
+          allNavLinks.forEach((link) => {
+            link.classList.remove("active-nav");
+            // También remover de los elementos padre en desktop
+            const parentItem = link.closest(".header-desktop-nav-item");
+            if (parentItem) {
+              parentItem.classList.remove("active-nav");
+            }
+          });
+        }
+      });
+    }, observerOptions);
+
+    // Observar todas las secciones
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+  };
+
   // --- Mobile Navigation Event Listeners ---
   burguer?.addEventListener("click", () => {
     nav?.classList.toggle("active");
@@ -40,9 +108,13 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.classList.remove("no-scroll"); // Restore body scroll
   });
 
-  // Close mobile nav when a link is clicked
+  // Close mobile nav when a link is clicked and handle smooth scroll
   navItems.forEach((item) => {
-    item.addEventListener("click", () => {
+    item.addEventListener("click", (event) => {
+      // Handle smooth scroll
+      handleNavClick(event);
+
+      // Close mobile navigation
       nav?.classList.remove("active");
       document.body.classList.remove("no-scroll"); // Restore body scroll
 
@@ -54,6 +126,11 @@ document.addEventListener("DOMContentLoaded", function () {
         isDropdownOpen = false;
       }
     });
+  });
+
+  // --- Desktop Navigation Event Listeners ---
+  desktopNavItems.forEach((item) => {
+    item.addEventListener("click", handleNavClick);
   });
 
   // --- Desktop Language Dropdown Event Listeners ---
@@ -91,4 +168,24 @@ document.addEventListener("DOMContentLoaded", function () {
   // --- Contact Button Event Listeners ---
   desktopContactButton?.addEventListener("click", openEmailClient);
   mobileContactButton?.addEventListener("click", openEmailClient);
+
+  // --- Initialize Active Navigation Highlight ---
+  initActiveNavHighlight();
+
+  // --- Handle Window Resize ---
+  window.addEventListener("resize", () => {
+    // Cerrar menú móvil si se cambia a desktop
+    if (window.innerWidth >= 1024 && nav?.classList.contains("active")) {
+      nav.classList.remove("active");
+      document.body.classList.remove("no-scroll");
+    }
+
+    // Cerrar dropdown de idiomas si se cambia a móvil
+    if (window.innerWidth < 1024 && isDropdownOpen) {
+      dropdown?.classList.remove("open");
+      arrow?.classList.remove("open");
+      trigger?.classList.remove("active");
+      isDropdownOpen = false;
+    }
+  });
 });

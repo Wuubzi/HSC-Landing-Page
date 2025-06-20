@@ -781,3 +781,61 @@ body.no-scroll {
     right: 7.3vw;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+.header-nav-item a.active-nav,
+.header-desktop-nav-item a.active-nav {
+  color: var(--primary-color) !important;
+  font-weight: 600;
+}
+
+.header-desktop-nav-item.active-nav .triangle,
+.header-desktop-nav-item a.active-nav + .triangle {
+  opacity: 1;
+}
+
+.header-nav-item a,
+.header-desktop-nav-item a {
+  transition: color 0.3s ease, font-weight 0.3s ease;
+}
+
+@media (max-width: 1023px) {
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  section[id] {
+    scroll-margin-top: 100px;
+  }
+}
+
+@media (min-width: 1024px) {
+  section[id] {
+    scroll-margin-top: 120px;
+  }
+}
+
+.header-nav-item,
+.header-desktop-nav-item {
+  transition: all 0.3s ease;
+}
+
+.header-nav-item a:hover,
+.header-desktop-nav-item a:hover {
+  transform: translateY(-1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .header-nav-item a,
+  .header-desktop-nav-item a {
+    transition: none;
+  }
+}
