@@ -1,9 +1,7 @@
 .project-section-container {
   overflow: hidden;
   position: relative;
-  padding-bottom: 15rem;
   width: 100vw;
-  height: 100vh;
 }
 
 .project-section-container .bg-section {
@@ -12,7 +10,7 @@
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
-  height: 50vh;
+  height: 20vh;
   padding: 0;
   margin: 0;
   padding: 3rem 0;
@@ -32,12 +30,8 @@
   width: 100%;
   height: auto;
   padding: 20px 0 20px 0;
-  position: absolute;
-  top: 10rem;
-  left: 0;
-  right: 0;
-  margin-left: 0;
-  margin-right: 0;
+  position: relative;
+  top: -10vw;
 }
 
 .project-section-container .swiper-wrapper {
@@ -52,6 +46,7 @@
   justify-content: center;
   align-items: center;
   width: auto;
+  padding: 20px;
 }
 
 .swiper-button-next:hover,
@@ -352,6 +347,7 @@
 @media (min-width: 1024px) {
   .project-section-container .bg-section {
     position: relative;
+    height: 40vh;
   }
 
   .project-section-container .bg-section .shape-container .shape {
@@ -385,7 +381,9 @@
 
 /* Pantallas Grandes */
 @media (min-width: 1536px) {
-  /* Añade estilos para pantallas grandes si es necesario */
+  .project-section-container .bg-section {
+    height: 35vh;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -396,5 +394,416 @@
 @media (min-width: 1536px) {
   .bg-section h1 {
     font-size: 30rem;
+  }
+}
+
+.modal-project {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(5px);
+}
+
+.modal-project.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.modal-project .modal-content {
+  background: white;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 900px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  position: relative;
+  animation: modalSlideIn 0.3s ease;
+  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal-project .modal-header {
+  padding: 30px;
+  border-bottom: 1px solid #e2e8f0;
+  position: relative;
+  /* Hacer el header sticky para que siempre esté visible */
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 10;
+  border-radius: 20px 20px 0 0;
+}
+
+.modal-project .modal-close {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #64748b;
+  transition: color 0.3s ease;
+  z-index: 11;
+}
+
+.modal-project .modal-close:hover {
+  color: #ef4444;
+}
+
+.modal-project .modal-client {
+  color: #3b82f6;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.modal-project .modal-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 15px;
+  /* Asegurar que el título no se superponga con el botón de cerrar */
+  padding-right: 60px;
+}
+
+.modal-project .modal-body {
+  padding: 0 30px 30px;
+  /* Remover cualquier overflow aquí */
+}
+
+.modal-project .modal-description {
+  color: #64748b;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.modal-project .modal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.modal-project .gallery-container {
+  margin-bottom: 70px;
+}
+
+.modal-project .gallery-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 20px;
+}
+
+.modal-project .image-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.modal-project .gallery-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.modal-project .gallery-image:hover {
+  transform: scale(1.05);
+}
+
+.modal-project .project-details {
+  background: #f8fafc;
+  padding: 25px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.modal-project .detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.modal-project .detail-item:last-child {
+  border-bottom: none;
+}
+
+.modal-project .detail-label {
+  font-weight: 600;
+  color: #475569;
+}
+
+.modal-project .detail-value {
+  color: #1e293b;
+  font-weight: 500;
+}
+body.modal-open {
+  overflow: hidden;
+  height: 100vh;
+}
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.lightbox.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2.5rem;
+  cursor: pointer;
+  z-index: 2001;
+  transition: all 0.3s ease;
+  padding: 10px;
+}
+
+.lightbox-close:hover {
+  transform: scale(1.1);
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 2rem;
+  padding: 15px 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  z-index: 2001;
+}
+
+.lightbox-nav:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox-prev {
+  left: -80px;
+}
+
+.lightbox-next {
+  right: -80px;
+}
+
+@media (max-width: 768px) {
+  .modal-project.active {
+    padding: 10px;
+    align-items: flex-start;
+    padding-top: 20px;
+  }
+
+  .modal-project .modal-content {
+    max-height: calc(100vh - 20px);
+    border-radius: 15px;
+  }
+
+  .modal-project .modal-header {
+    padding: 20px;
+    border-radius: 15px 15px 0 0;
+  }
+
+  .modal-project .modal-body {
+    padding: 0 20px 20px;
+  }
+
+  .modal-project .modal-title {
+    font-size: 1.5rem;
+    padding-right: 50px;
+  }
+
+  .modal-project .modal-close {
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+  }
+
+  .modal-project .image-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .modal-project .project-details {
+    padding: 20px;
+  }
+
+  .modal-project .detail-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .lightbox-content {
+    max-width: 95vw;
+    max-height: 95vh;
+  }
+
+  .lightbox-close {
+    top: -40px;
+    right: -10px;
+    font-size: 2rem;
+  }
+
+  .lightbox-nav {
+    font-size: 1.5rem;
+    padding: 10px 15px;
+  }
+
+  .lightbox-prev {
+    left: -60px;
+  }
+
+  .lightbox-next {
+    right: -60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-project .modal-content {
+    border-radius: 10px;
+  }
+
+  .modal-project .modal-header {
+    padding: 15px;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .modal-project .modal-body {
+    padding: 0 15px 15px;
+  }
+
+  .modal-project .modal-title {
+    font-size: 1.3rem;
+  }
+
+  .modal-project .image-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .lightbox-close {
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox-nav {
+    font-size: 1.2rem;
+    padding: 8px 12px;
+  }
+
+  .lightbox-prev {
+    left: 10px;
+  }
+
+  .lightbox-next {
+    right: 10px;
+  }
+
+  .lightbox.active .lightbox-content {
+    animation: lightboxFadeIn 0.3s ease-out;
+  }
+
+  .lightbox.active .lightbox-image {
+    animation: lightboxZoomIn 0.4s ease-out 0.1s both;
+  }
+
+  @keyframes lightboxFadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes lightboxZoomIn {
+    from {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Prevenir scroll cuando el lightbox está activo */
+  body.lightbox-open {
+    overflow: hidden;
+    height: 100vh;
   }
 }

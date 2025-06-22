@@ -4,30 +4,17 @@ import { languages } from "../../i18n/ui";
 import CardProjects from "../CardProjects/CardProjects.astro";
 const currentLang = Astro.currentLocale || "es";
 const translateLabels = useTranslations(currentLang as keyof typeof languages);
+import { getProjectsData } from "../../data/ProjectsData";
 import "./Projects.css";
-const projects = [
-  //First Project
-  {
-    title: translateLabels("project-card-first-title"),
-    description: translateLabels("project-card-first-description"),
-    image: "/assets/projects/project-example-first-card.webp",
-    imageAlt: translateLabels("project-card-first-alt"),
-  },
-  //   Second Project
-  {
-    title: translateLabels("project-card-second-title"),
-    description: translateLabels("project-card-second-description"),
-    image: "/assets/projects/project-example-second-card.webp",
-    imageAlt: translateLabels("project-card-second-alt"),
-  },
-  //   Third Project
-  {
-    title: translateLabels("project-card-third-title"),
-    description: translateLabels("project-card-third-description"),
-    image: "/assets/projects/project-example-third-card.webp",
-    imageAlt: translateLabels("project-card-third-alt"),
-  },
-];
+
+const ProjectsData = getProjectsData(translateLabels);
+
+const projects = Object.keys(ProjectsData).map((key) => ({
+  id: key,
+  ...ProjectsData[key],
+}));
+
+const projectsDataJSON = JSON.stringify(ProjectsData);
 ---
 
 <section id="projects">
@@ -56,8 +43,9 @@ const projects = [
                 <CardProjects
                   title={project.title}
                   description={project.description}
-                  image={project.image}
-                  imageAlt={project.imageAlt}
+                  client={project.client}
+                  images={project.images}
+                  projectId={project.id}
                 />
               </div>
             </div>
@@ -73,4 +61,77 @@ const projects = [
   </div>
 </section>
 
+<!-- Modal para mostrar detalles del proyecto -->
+<div id="projectModal" class="modal-project">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button class="modal-close">&times;</button>
+      <div class="modal-client" id="modalClient"></div>
+      <h2 class="modal-title" id="modalTitle"></h2>
+    </div>
+    <div class="modal-body">
+      <p class="modal-description" id="modalDescription"></p>
+      <div class="modal-tags" id="modalTags"></div>
+
+      <div class="project-details">
+        <div class="detail-item">
+          <span class="detail-label"
+            >{translateLabels("project.modal.location-label")}:</span
+          >
+          <span class="detail-value" id="modalLocation"></span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label"
+            >{translateLabels("project.modal.duration-label")}:</span
+          >
+          <span class="detail-value" id="modalDuration"></span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label"
+            >{translateLabels("project.modal.type-label")}:</span
+          >
+          <span class="detail-value" id="modalType"></span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label"
+            >{translateLabels("project.modal.personnel-label")}:</span
+          >
+          <span class="detail-value" id="modalPersonnel"></span>
+        </div>
+      </div>
+
+      <div class="gallery-container">
+        <h3 class="gallery-title">
+          {translateLabels("project.modal.gallery-title")}
+        </h3>
+        <div class="image-gallery" id="modalGallery"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox para la galería -->
+<div id="lightbox" class="lightbox">
+  <div class="lightbox-content">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <img id="lightboxImage" class="lightbox-image" src="" alt="" />
+    <button
+      class="lightbox-nav lightbox-prev"
+      onclick="changeLightboxImage(-1)"
+    >
+      &#8249;
+    </button>
+    <button class="lightbox-nav lightbox-next" onclick="changeLightboxImage(1)">
+      &#8250;
+    </button>
+  </div>
+</div>
+
 <script src="./Projects.js"></script>
+
+<!-- Inyectar los datos del proyecto como JSON en el HTML -->
+<script
+  type="application/json"
+  id="projects-data"
+  set:html={projectsDataJSON}
+/>

@@ -5,6 +5,7 @@ export const languages = {
 
 export const labels = {
   es: {
+    //HEADER
     "nav.logoAlt": "Logo de HSC - Servicios, Suministros e Ingeniería",
     "nav.home": "Inicio",
     "nav.about": "Sobre Nosotros",
@@ -25,6 +26,8 @@ export const labels = {
     "nav.desktop.numberAlt": "Número de teléfono",
     "nav.desktop.emailAlt": "Correo electrónico",
     "nav.desktop.addressAlt": "Dirección física",
+
+    //HERO SECTION
     "hero.title.important": "Haz que sea mas fácil",
     "hero.title": "Gestionar  la Construccion.",
     "hero.description":
@@ -32,13 +35,15 @@ export const labels = {
     "hero.button": "Conocenos",
     "hero.imageAlt":
       "Mujer trabajadora de la construcción con casco, gafas de seguridad y herramientas, sonriendo.",
-    "aboutUs.title": "Hacemos realidad proyectos que",
+    
+    //ABOUT US SECTION
+      "aboutUs.title": "Hacemos realidad proyectos que",
     "aboutUs.title.important": "Transforman",
     "aboutUs.description":
       "Con talento humano altamente calificado, construimos soluciones integrales en ingeniería civil, montaje industrial y estructuras metálicas. Llevamos más de 15 años brindando confianza al sector industrial y comercial de la Costa Norte, con servicios que combinan calidad, cumplimiento y experiencia.",
     "aboutUs.list.first": "Personal certificado en múltiples oficios",
     "aboutUs.list.second": "Red de profesionales en obra y mantenimiento",
-    "aboutUs.list.third": " 15+ años de experiencia",
+    "aboutUs.list.third": " 20+ años de experiencia",
     "aboutUs.list.four": "Proyectos civiles, industriales y de saneamiento",
     "aboutUs.list.fifth": "Confianza garantizada por nuestros clientes",
     "aboutUs.list.iconAlt":
@@ -47,7 +52,7 @@ export const labels = {
     "aboutUs.bento.client.description": "Satisfechos con nosotros",
     "aboutUs.bento.client.imageAlt":
       "Icono de trabajador con casco de seguridad",
-    "aboutUs.bento.experience.title": "15+ Años",
+    "aboutUs.bento.experience.title": "20+ Años",
     "aboutUs.bento.experiencie.description": "de experiencia",
     "aboutUs.bento.experiencie.imageAlt":
       "Icono de reloj con verificación de tiempo",
@@ -60,7 +65,9 @@ export const labels = {
       "Un supervisor o ingeniero con casco blanco y un ejecutivo en traje, ambos en una obra de construcción, observando una excavadora al fondo. Un ícono de marca de verificación aparece en primer plano.",
     "aboutUs.bento.four.imageAlt":
       "Primer plano de un viaducto de concreto con múltiples niveles de autopistas y pilares masivos, visto desde abajo.",
-    "service.title": "Nuestros Servicios",
+    
+    //SERVICE SECTION
+      "service.title": "Nuestros Servicios",
     "service.description":
       "Soluciones integrales en construccíon y talento humano, con calidad, seguridad, y eficiencia. Contamos con un equipo altamente capacitado para impulsar tus proyectos desde la planificacion hasta la ejecucion",
     "service.card.first.iconAlt":
@@ -78,7 +85,9 @@ export const labels = {
     "service.card.third.title": "Mano de Obra Calificada",
     "service.card.third.description":
       "Te apoyamos con el talento humano ideal para cada etapa del proceso constructivo. Nuestro personal cuenta con certificación y experiencia.",
-    "wetalent.title": "Talento Certificado que Construye",
+   
+   //WE TALENT SECTION
+      "wetalent.title": "Talento Certificado que Construye",
     "wetalent.title.important": "Resultados",
     "wetalent.description":
       "Reclutamos el equipo ideal para tus obras, con personal altamente calificado y listo para actuar. Nuestro enfoque combina experiencia en selección y conocimientos técnicos para ofrecerte los mejores perfiles del sector construcción.",
@@ -95,7 +104,9 @@ export const labels = {
     "wetalent.third.card.iconAlt": "Icono de un puente o estructura.",
     "wetalent.third.card.backgroundAlt":
       "Imagen de fondo borrosa con colores cálidos y siluetas de estructuras metálicas o grúas, sugiriendo un sitio industrial o de construcción.",
-    "project.title": "Obras Civiles que Conectan el Futuro",
+   
+   //PROJECT SECTION
+      "project.title": "Obras Civiles que Conectan el Futuro",
     "project-card-first-title": "Centro Empresarial Nexus",
     "project-card-first-description":
       "Un espacio moderno y minimalista diseñado para oficinas de alto nivel, con arquitectura de concreto expuesto y líneas limpias.",
@@ -111,6 +122,86 @@ export const labels = {
       "Infraestructura vial elevada diseñada para mejorar la movilidad urbana con ingeniería moderna y durabilidad.",
     "project-card-third-alt":
       "Infraestructura vial elevada diseñada para mejorar la movilidad urbana con ingeniería moderna y durabilidad.",
+    "project-card-button": "Ver Proyecto Completo",
+    "project-card-Imagecounter": "Fotos",
+
+    // Project 1 Translations
+    "project1-title": "Montaje del Tren Laminador",
+    "project1-description": "Proyecto integral de gran envergadura que incluyó el montaje de estructuras metálicas, cubiertas, puente grúa, horno, planta de agua para el tren laminador, montaje de mesa de acabado y atadoras, diseño y pintura de logos Ternium, e instalación, montaje y puesta en marcha del sistema eléctrico completo del laminador. Este proyecto representó un hito en nuestra capacidad técnica y de ejecución.",
+    "project1-duration": " meses",
+    "project1-type": "Montaje Industrial Integral",
+    "project1-personnel": " especialistas",
+    "project1-image1-alt": "Operario soldando en sitio de construcción",
+    "project1-image2-alt": "Trabajadores en construcción con grúa",
+    "project1-image3-alt": "Ingenieros revisando planos en obra",
+    "project1-image4-alt": "Equipo pesado en obra",
+    "project1-image5-alt": "Componentes de maquinaria industrial",
+    "project1-image6-alt": "Vista aérea de complejo industrial",
+    "project1-image7-alt": "Estructura metálica en construcción",
+
+    // Project 2 Translations
+    "project2-title": "Diseño y Fabricación de Estructura Cubierta",
+    "project2-description": "Diseño, cálculos estructurales, fabricación y montaje de estructura metálica para cubierta de chatarra en las instalaciones de Manizales. El proyecto incluyó el análisis estructural completo, fabricación de elementos metálicos y montaje especializado con técnicas avanzadas de ingeniería.",
+    "project2-duration": " meses",
+    "project2-type": "Estructura Metálica",
+    "project2-personnel": " especialistas",
+    "project2-image1-alt": "Diseño de estructura metálica",
+    "project2-image2-alt": "Montaje de cubierta industrial",
+    "project2-image3-alt": "Estructura de techo industrial",
+    "project2-image4-alt": "Obra de construcción con armazón de acero",
+
+    // Project 3 Translations
+    "project3-title": "Construcción de Pavimentos y Vías",
+    "project3-description": "Construcción integral de pavimentos, vías y muros en concreto, incluyendo infraestructura vial completa y sistema de manejo de aguas. El proyecto abarcó la construcción de más de 2 km de vías internas, pavimentos de alta resistencia y un sistema de drenaje optimizado para el manejo de aguas lluvias.",
+    "project3-duration": " meses",
+    "project3-type": "Obra Civil",
+    "project3-personnel": " especialistas",
+    "project3-image1-alt": "Construcción de carretera",
+    "project3-image2-alt": "Extensión de pavimento",
+    "project3-image3-alt": "Trabajadores en pavimentación",
+    "project3-image4-alt": "Vista aérea de obra vial",
+    "project3-image5-alt": "Drenaje de aguas pluviales en vía",
+
+    // Project 4 Translations
+    "project4-title": "Suministro de Personal Especializado",
+    "project4-description": "Suministro de personal altamente calificado en áreas de ingeniería y mantenimiento: mecánicos industriales certificados, soldadores con certificación internacional, técnicos eléctricos e inspectores de seguridad industrial. El personal proporcionado cuenta con más de 10 años de experiencia promedio en el sector industrial.",
+    "project4-duration": "Contrato anual renovable",
+    "project4-type": "Recursos Humanos Especializados",
+    "project4-personnel": " profesionales",
+    "project4-image1-alt": "Ingeniero industrial en planta",
+    "project4-image2-alt": "Técnico eléctrico revisando panel",
+    "project4-image3-alt": "Equipo de mantenimiento en acción",
+
+    // Project 5 Translations
+    "project5-title": "Sistema Colector de Material Particulado",
+    "project5-description": "Fabricación de 100 unidades de rack metálicos para placas, montaje e instalación de sistema colector de material particulado con tecnología de filtración avanzada, y fabricación de portones industriales automatizados. El proyecto incluyó la implementación de sistemas de control ambiental y automatización industrial.",
+    "project5-duration": " meses",
+    "project5-type": "Sistema Industrial y Ambiental",
+    "project5-personnel": " especialistas",
+    "project5-image1-alt": "Sistema de filtración de aire",
+    "project5-image2-alt": "Portón industrial automatizado",
+    "project5-image3-alt": "Control de calidad en ambiente industrial",
+    "project5-image4-alt": "Maquinaria de procesamiento de materiales",
+    "project5-image5-alt": "Operación de sistema automatizado",
+    "project5-image6-alt": "Vista interior de instalación con ductos",
+
+    // Project 6 Translations
+    "project6-title": "Construcción de Instalaciones Deportivas",
+    "project6-description": "Construcción integral de kiosco deportivo con diseño arquitectónico moderno, instalación de grama sintética de última generación en cancha de fútbol, y construcción de placa especializada en pista atlética. El proyecto incluyó sistemas de drenaje, iluminación LED y mobiliario deportivo completo.",
+    "project6-duration": " meses",
+    "project6-type": "Construcción Deportiva y Educativa",
+    "project6-personnel": " especialistas",
+    "project6-image1-alt": "Cancha de fútbol con grama sintética",
+    "project6-image2-alt": "Construcción de kiosco deportivo",
+    "project6-image3-alt": "Pista atlética terminada",
+    "project6-image4-alt": "Instalaciones deportivas modernas",
+    "project.modal.location-label": "Ubicación",
+    "project.modal.duration-label": "Duración",
+    "project.modal.type-label": "Tipo de Proyecto",
+    "project.modal.personnel-label": "Personal Involucrado",
+    "project.modal.gallery-title": "Galería del Proyecto",
+
+    //MEMBERS SECTION
     "members.title": "El Talento Detrás de Cada Obra",
     "members.description":
       "Cada estructura que levantamos tiene una historia, y esa historia comienza con nuestro equipo. Ingenieros, técnicos, operarios y líderes comprometidos que, con pasión, experiencia y precisión, convierten planos en realidades sólidas.",
@@ -123,7 +214,9 @@ export const labels = {
     "members.third.card.ocupation": "Diseñadora de Interiores",
     "mebers.third.card.imageAlt":
       "Una mujer joven sonriendo, con cabello trenzado, gafas de seguridad transparentes y guantes de trabajo naranjas, con un fondo de almacén borroso.",
-    "reviews.title": "Testimonios de Nuestros Clientes Satisfechos",
+    
+    //REVIEWS SECTION
+      "reviews.title": "Testimonios de Nuestros Clientes Satisfechos",
     "reviews.card.first.review":
       "Lo que más valoramos de Constructora HSC es su capacidad para suministrar personal calificado y certificado. Sus soldadores, electricistas y mecánicos son excepcionales. Han sido nuestro socio estratégico en múltiples proyectos durante los últimos 8 años.",
     "reviews.card.first.imageAlt": "Una mujer rubia con traje de negocios.",
@@ -135,13 +228,17 @@ export const labels = {
       "La experiencia trabajando con Constructora HSC ha sido sobresaliente. Su compromiso con la calidad y la puntualidad en cada fase del proyecto es digno de elogio. Definitivamente, son un referente en el sector de la construcción",
     "reviews.card.third.imageAlt":
       "Un hombre con gafas y barba, vistiendo un saco de cuadros y camisa blanca con cuello estampado.",
-    "blog.title":
+    
+    //BLOGS SECTION
+      "blog.title":
       "LEE NUESTRO BLOG PARA TENER UN CONOCIMIENTO CLARO SOBRE NOSOTROS",
     "blog.modal.author": "Autor",
     "blog.modal.date": "Fecha",
     "blog.tags": "Etiquetas",
     "error.blogNotFound": "Blog no encontrado",
     "error.loadingError": "Error al cargar el blog",
+    
+    //WORKING SECTION
     "working.title": "¿Quieres trabajar con nosotros?",
     "working.description":
       "Únete a un equipo apasionado por construir el futuro. Buscamos personas comprometidas, creativas y con ganas de crecer.",
@@ -163,7 +260,9 @@ export const labels = {
     "working.modal.button": "Enviar Aplicación",
     "working.modal.success":
       " ¡Gracias! Tu aplicación ha sido enviada exitosamente. Te contactaremos pronto.",
-    "footer.description":
+    
+    //FOOTER SECTION
+      "footer.description":
       "HSC se esfuerza por ser un líder intelectual en nuestra industria y brindar información continua y actualizaciones a nuestros clientes",
     "footer.link.title": "Enlaces Rapido",
     "footer.link.first": "Sobre Nosotros",
@@ -215,7 +314,7 @@ export const labels = {
     "aboutUs.list.first": "Personnel certified in multiple trades",
     "aboutUs.list.second":
       "Network of professionals in construction and maintenance",
-    "aboutUs.list.third": "15+ years of experience",
+    "aboutUs.list.third": "20+ years of experience",
     "aboutUs.list.four": "Civil, industrial, and sanitation projects",
     "aboutUs.list.fifth": "Trust guaranteed by our clients",
     "aboutUs.list.iconAlt":
@@ -223,7 +322,7 @@ export const labels = {
     "aboutUs.bento.client.title": "20+ Clients",
     "aboutUs.bento.client.description": "Satisfied with us",
     "aboutUs.bento.client.imageAlt": "Icon of a worker with a safety helmet",
-    "aboutUs.bento.experience.title": "15+ Years",
+    "aboutUs.bento.experience.title": "20+ Years",
     "aboutUs.bento.experiencie.description": "of experience",
     "aboutUs.bento.experiencie.imageAlt":
       "Icon of a clock with a time check mark",
@@ -285,6 +384,85 @@ export const labels = {
       "Elevated road infrastructure designed to improve urban mobility with modern engineering and durability.",
     "project-card-third-alt":
       "Elevated road infrastructure designed to improve urban mobility with modern engineering and durability.",
+    "project-card-button": "See the full project",
+    "project-card-Imagecounter": "Photos",
+
+    // Project 1 Translations
+    "project1-title": "Rolling Mill Assembly",
+    "project1-description": "Large-scale integral project that included the assembly of metallic structures, roofs, bridge crane, furnace, water treatment plant for the rolling mill, assembly of finishing table and tying machines, design and painting of Ternium logos, and installation, assembly, and commissioning of the complete electrical system of the rolling mill. This project represented a milestone in our technical and execution capacity.",
+    "project1-duration": " months",
+    "project1-type": "Integral Industrial Assembly",
+    "project1-personnel": " specialists",
+    "project1-image1-alt": "Operator welding on construction site",
+    "project1-image2-alt": "Workers on construction with crane",
+    "project1-image3-alt": "Engineers reviewing blueprints on site",
+    "project1-image4-alt": "Heavy equipment on site",
+    "project1-image5-alt": "Industrial machinery components",
+    "project1-image6-alt": "Aerial view of industrial complex",
+    "project1-image7-alt": "Metal structure under construction",
+
+    // Project 2 Translations
+    "project2-title": "Design and Fabrication of Roof Structure",
+    "project2-description": "Design, structural calculations, fabrication, and assembly of metallic structure for scrap roof at the Manizales facilities. The project included complete structural analysis, fabrication of metallic elements, and specialized assembly with advanced engineering techniques.",
+    "project2-duration": " months",
+    "project2-type": "Metal Structure",
+    "project2-personnel": " specialists",
+    "project2-image1-alt": "Metal structure design",
+    "project2-image2-alt": "Industrial roof assembly",
+    "project2-image3-alt": "Industrial roof structure",
+    "project2-image4-alt": "Construction site with steel frame",
+
+    // Project 3 Translations
+    "project3-title": "Pavement and Road Construction",
+    "project3-description": "Integral construction of pavements, roads, and concrete walls, including complete road infrastructure and water management system. The project covered the construction of more than 2 km of internal roads, high-resistance pavements, and an optimized drainage system for rainwater management.",
+    "project3-duration": " months",
+    "project3-type": "Civil Work",
+    "project3-personnel": " specialists",
+    "project3-image1-alt": "Road construction",
+    "project3-image2-alt": "Pavement extension",
+    "project3-image3-alt": "Workers paving",
+    "project3-image4-alt": "Aerial view of road work",
+    "project3-image5-alt": "Stormwater drainage on road",
+
+    // Project 4 Translations
+    "project4-title": "Supply of Specialized Personnel",
+    "project4-description": "Supply of highly qualified personnel in engineering and maintenance areas: certified industrial mechanics, internationally certified welders, electrical technicians, and industrial safety inspectors. The provided personnel have an average of over 10 years of experience in the industrial sector.",
+    "project4-duration": "Renewable annual contract",
+    "project4-type": "Specialized Human Resources",
+    "project4-personnel": " professionals",
+    "project4-image1-alt": "Industrial engineer in plant",
+    "project4-image2-alt": "Electrical technician checking panel",
+    "project4-image3-alt": "Maintenance team in action",
+
+    // Project 5 Translations
+    "project5-title": "Particulate Matter Collection System",
+    "project5-description": "Fabrication of 100 metallic rack units for plates, assembly and installation of a particulate matter collection system with advanced filtration technology, and fabrication of automated industrial gates. The project included the implementation of environmental control systems and industrial automation.",
+    "project5-duration": " months",
+    "project5-type": "Industrial and Environmental System",
+    "project5-personnel": " specialists",
+    "project5-image1-alt": "Air filtration system",
+    "project5-image2-alt": "Automated industrial gate",
+    "project5-image3-alt": "Quality control in industrial environment",
+    "project5-image4-alt": "Material processing machinery",
+    "project5-image5-alt": "Automated system operation",
+    "project5-image6-alt": "Interior view of installation with ducts",
+
+    // Project 6 Translations
+    "project6-title": "Construction of Sports Facilities",
+    "project6-description": "Integral construction of a modern architectural design sports kiosk, installation of state-of-the-art synthetic turf on a soccer field, and construction of a specialized slab on an athletic track. The project included drainage systems, LED lighting, and complete sports furniture.",
+    "project6-duration": " months",
+    "project6-type": "Sports and Educational Construction",
+    "project6-personnel": " specialists",
+    "project6-image1-alt": "Soccer field with synthetic turf",
+    "project6-image2-alt": "Sports kiosk construction",
+    "project6-image3-alt": "Finished athletic track",
+    "project6-image4-alt": "Modern sports facilities",
+    "project.modal.location-label": "Location",
+    "project.modal.duration-label": "Duration",
+    "project.modal.type-label": "Project Type",
+    "project.modal.personnel-label": "Personnel Involved",
+    "project.modal.gallery-title": "Project Gallery",
+
     "members.title": "The Talent Behind Every Project",
     "members.description":
       "Every structure we build has a story, and that story begins with our team. Committed engineers, technicians, operators, and leaders who, with passion, experience, and precision, turn blueprints into solid realities.",

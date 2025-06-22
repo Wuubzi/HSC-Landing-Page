@@ -14,10 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const swiper = new Swiper(".SwiperProject", {
       modules: [Navigation, Pagination, Autoplay],
-      // Default for mobile (viewport width < 1024px)
       slidesPerView: 1,
       spaceBetween: 20,
-      centeredSlides: true,
+      centeredSlides: false,
       loop: true,
 
       autoplay: {
@@ -37,15 +36,12 @@ document.addEventListener("DOMContentLoaded", () => {
         dynamicBullets: true,
       },
 
-      // Breakpoints for responsive behavior
       breakpoints: {
-        // When window width is >= 768px (for tablets, optional)
         768: {
           slidesPerView: 2,
           spaceBetween: 30,
           centeredSlides: false,
         },
-        // When window width is >= 1024px (for desktops/laptops)
         1024: {
           slidesPerView: 3,
           centeredSlides: false,
@@ -54,26 +50,21 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     });
 
-    // Store the swiper instance on the DOM element for potential later access
     swiperContainer.swiper = swiper;
 
-    // Your existing handleResize function to manage navigation button display
     const handleResize = () => {
-      // Use your custom class names for the buttons
       const nextBtn = document.querySelector(".custom-next");
       const prevBtn = document.querySelector(".custom-prev");
-      const pagination = document.querySelector(".swiper-pagination"); // Ensure this is present in HTML if used
+      const pagination = document.querySelector(".swiper-pagination");
 
       if (window.innerWidth >= 1024) {
         if (nextBtn) nextBtn.style.display = "none";
         if (prevBtn) prevBtn.style.display = "none";
-        // On desktop, you have custom-navigation buttons that you hide.
-        // If you want default Swiper pagination dots to show, ensure the element exists.
-        if (pagination) pagination.style.display = "block"; // Show pagination dots on desktop
+        if (pagination) pagination.style.display = "block";
       } else {
-        if (nextBtn) nextBtn.style.display = "flex"; // Show buttons on mobile/tablet
+        if (nextBtn) nextBtn.style.display = "flex";
         if (prevBtn) prevBtn.style.display = "flex";
-        if (pagination) pagination.style.display = "none"; // Hide dots on mobile/tablet
+        if (pagination) pagination.style.display = "none";
       }
     };
 
@@ -82,6 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// Intersection Observer para animaciones
 const observerOptions = {
   threshold: 0.1,
   rootMargin: "0px 0px -30px 0px",
@@ -109,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
   animatedElements.forEach((el) => observer.observe(el));
 });
 
-// Animación continua para el shape flotante
+// Animación flotante para shapes
 document.addEventListener("DOMContentLoaded", () => {
   const shape = document.querySelector(".shape");
   if (shape) {
@@ -125,6 +117,19 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// Cargar datos de proyectos
+let projectsData = {};
+try {
+  const projectsScript = document.getElementById("projects-data");
+  if (projectsScript) {
+    projectsData = JSON.parse(projectsScript.textContent);
+    console.log("ProjectsData loaded:", projectsData);
+  }
+} catch (error) {
+  console.error("Error loading projects data:", error);
+}
+
+// Efectos hover para cards
 document.addEventListener("DOMContentLoaded", () => {
   const projectCards = document.querySelectorAll(".card-wrapper");
 
@@ -153,71 +158,360 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Example: Button hover/click animation (if you have buttons to animate)
-document.addEventListener("DOMContentLoaded", () => {
-  const buttons = document.querySelectorAll(".your-button-class"); // Replace with your actual button class
-  buttons.forEach((button) => {
-    button.addEventListener("mouseenter", () => {
-      if (button instanceof HTMLElement) {
-        button.style.transform = "scale(1.1)";
-        button.style.boxShadow = "0 8px 20px rgba(0, 0, 0, 0.2)";
+// Variables globales para el lightbox
+let currentLightboxImages = [];
+let currentImageIndex = 0;
+
+// Inicialización
+document.addEventListener("DOMContentLoaded", function () {
+  initializeModalEvents();
+  initializeLightboxEvents();
+  addSmoothScrolling();
+  initializeLazyLoading();
+  initializeScrollAnimations();
+});
+
+// *** FUNCIÓN PRINCIPAL - Abrir modal del proyecto ***
+function openModal(projectId) {
+  console.log("Opening modal for project:", projectId);
+  console.log("Available projects:", Object.keys(projectsData));
+
+  const project = projectsData[projectId];
+  if (!project) {
+    console.error("Project not found:", projectId);
+    return;
+  }
+
+  const modal = document.getElementById("projectModal");
+  if (!modal) {
+    console.error("Modal element not found");
+    return;
+  }
+
+  // Rellenar información del modal
+  const modalClient = document.getElementById("modalClient");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalDescription = document.getElementById("modalDescription");
+  const modalLocation = document.getElementById("modalLocation");
+  const modalDuration = document.getElementById("modalDuration");
+  const modalType = document.getElementById("modalType");
+  const modalPersonnel = document.getElementById("modalPersonnel");
+
+  if (modalClient) modalClient.textContent = project.client || "";
+  if (modalTitle) modalTitle.textContent = project.title || "";
+  if (modalDescription) modalDescription.textContent = project.description || "";
+  if (modalLocation) modalLocation.textContent = project.location || "";
+  if (modalDuration) modalDuration.textContent = project.duration || "";
+  if (modalType) modalType.textContent = project.type || "";
+  if (modalPersonnel) modalPersonnel.textContent = project.personnel || "";
+
+  // Rellenar tags
+  const tagsContainer = document.getElementById("modalTags");
+  if (tagsContainer) {
+    tagsContainer.innerHTML = "";
+    if (project.tags && Array.isArray(project.tags)) {
+      project.tags.forEach((tag) => {
+        const tagElement = document.createElement("span");
+        tagElement.className = "modal-tag";
+        tagElement.textContent = tag;
+        tagsContainer.appendChild(tagElement);
+      });
+    }
+  }
+
+  // *** FUNCIÓN CLAVE - Rellenar galería con lightbox ***
+  const galleryContainer = document.getElementById("modalGallery");
+  if (galleryContainer) {
+    galleryContainer.innerHTML = "";
+
+    if (project.images && Array.isArray(project.images)) {
+      project.images.forEach((image, index) => {
+        const imgElement = document.createElement("img");
+
+        // Manejar tanto objetos {src, alt} como strings simples
+        let imageSrc = "";
+        let imageAlt = "";
+
+        if (typeof image === "object" && image.src) {
+          imageSrc = image.src;
+          imageAlt = image.alt || `${project.title} - Imagen ${index + 1}`;
+        } else if (typeof image === "string") {
+          imageSrc = image;
+          imageAlt = `${project.title} - Imagen ${index + 1}`;
+        }
+
+        imgElement.src = imageSrc;
+        imgElement.alt = imageAlt;
+        imgElement.className = "gallery-image";
+        imgElement.loading = "lazy"; // Lazy loading
+
+        // *** EVENTO CLICK PARA ABRIR LIGHTBOX ***
+        imgElement.addEventListener("click", () => {
+          const imageSources = project.images.map((img) =>
+            typeof img === "object" ? img.src : img
+          );
+          openLightbox(imageSources, index);
+        });
+
+        galleryContainer.appendChild(imgElement);
+      });
+    }
+  }
+
+  // Mostrar modal
+  modal.classList.add("active");
+  document.body.classList.add("modal-open");
+  
+  // Mejora de accesibilidad
+  modal.setAttribute("aria-hidden", "false");
+  modal.focus();
+}
+
+// *** FUNCIÓN - Cerrar modal ***
+function closeModal() {
+  const modal = document.getElementById("projectModal");
+  if (modal) {
+    modal.classList.remove("active");
+    document.body.classList.remove("modal-open");
+    modal.setAttribute("aria-hidden", "true");
+  }
+}
+
+// *** FUNCIÓN PRINCIPAL - Abrir lightbox ***
+function openLightbox(images, startIndex = 0) {
+  console.log("Opening lightbox with images:", images);
+  
+  currentLightboxImages = images;
+  currentImageIndex = startIndex;
+
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImage = document.getElementById("lightboxImage");
+
+  if (!lightbox || !lightboxImage) {
+    console.error("Lightbox elements not found");
+    return;
+  }
+
+  // Configurar imagen inicial
+  lightboxImage.src = images[startIndex];
+  lightboxImage.alt = `Imagen ${startIndex + 1} de ${images.length}`;
+  
+  // Mostrar lightbox
+  lightbox.classList.add("active");
+  document.body.classList.add("lightbox-open");
+  
+  // Mejora de accesibilidad
+  lightbox.setAttribute("aria-hidden", "false");
+  lightbox.focus();
+  
+  console.log("Lightbox opened successfully");
+}
+
+// *** FUNCIÓN - Cerrar lightbox ***
+function closeLightbox() {
+  const lightbox = document.getElementById("lightbox");
+  if (lightbox) {
+    lightbox.classList.remove("active");
+    document.body.classList.remove("lightbox-open");
+    lightbox.setAttribute("aria-hidden", "true");
+  }
+}
+
+function changeLightboxImage(direction) {
+  if (currentLightboxImages.length === 0) return;
+
+  currentImageIndex += direction;
+
+  // Controlar límites con loop infinito
+  if (currentImageIndex >= currentLightboxImages.length) {
+    currentImageIndex = 0;
+  } else if (currentImageIndex < 0) {
+    currentImageIndex = currentLightboxImages.length - 1;
+  }
+
+  const lightboxImage = document.getElementById("lightboxImage");
+  if (lightboxImage) {
+    // Efecto de transición suave
+    lightboxImage.style.opacity = "0.5";
+    
+    setTimeout(() => {
+      lightboxImage.src = currentLightboxImages[currentImageIndex];
+      lightboxImage.alt = `Imagen ${currentImageIndex + 1} de ${currentLightboxImages.length}`;
+      lightboxImage.style.opacity = "1";
+    }, 150);
+  }
+}
+
+// *** INICIALIZAR EVENTOS DEL MODAL ***
+function initializeModalEvents() {
+  const modal = document.getElementById("projectModal");
+  if (!modal) return;
+
+  // Cerrar modal al hacer clic fuera del contenido
+  modal.addEventListener("click", function (e) {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  // Prevenir propagación de clicks dentro del contenido del modal
+  const modalContent = modal.querySelector(".modal-content");
+  if (modalContent) {
+    modalContent.addEventListener("click", function (e) {
+      e.stopPropagation();
+    });
+  }
+
+  // Botón de cerrar modal
+  const closeButton = document.querySelector(".modal-close");
+  if (closeButton) {
+    closeButton.addEventListener("click", closeModal);
+  }
+}
+
+
+function initializeLightboxEvents() {
+  const lightbox = document.getElementById("lightbox");
+  if (!lightbox) return;
+
+
+  lightbox.addEventListener("click", function (e) {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+
+  const lightboxContent = lightbox.querySelector(".lightbox-content");
+  if (lightboxContent) {
+    lightboxContent.addEventListener("click", function (e) {
+      e.stopPropagation();
+    });
+  }
+
+  document.addEventListener("keydown", function (e) {
+    const isLightboxActive = lightbox.classList.contains("active");
+    const isModalActive = document.getElementById("projectModal")?.classList.contains("active");
+
+    if (isLightboxActive) {
+      switch (e.key) {
+        case "ArrowLeft":
+          e.preventDefault();
+          changeLightboxImage(-1);
+          break;
+        case "ArrowRight":
+          e.preventDefault();
+          changeLightboxImage(1);
+          break;
+        case "Escape":
+          e.preventDefault();
+          closeLightbox();
+          break;
+      }
+    } else if (isModalActive && e.key === "Escape") {
+      e.preventDefault();
+      closeModal();
+    }
+  });
+
+  // Eventos para botones de navegación
+  const prevButton = lightbox.querySelector(".lightbox-prev");
+  const nextButton = lightbox.querySelector(".lightbox-next");
+  const closeButton = lightbox.querySelector(".lightbox-close");
+
+  if (prevButton) {
+    prevButton.addEventListener("click", () => changeLightboxImage(-1));
+  }
+
+  if (nextButton) {
+    nextButton.addEventListener("click", () => changeLightboxImage(1));
+  }
+
+  if (closeButton) {
+    closeButton.addEventListener("click", closeLightbox);
+  }
+}
+
+
+function addSmoothScrolling() {
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
       }
     });
+  });
+}
 
-    button.addEventListener("mouseleave", () => {
-      if (button instanceof HTMLElement) {
-        button.style.transform = "scale(1)";
-        button.style.boxShadow = "0 4px 10px rgba(0, 0, 0, 0.1)";
-      }
+function initializeLazyLoading() {
+  if ("IntersectionObserver" in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          if (img.dataset.src) {
+            img.src = img.dataset.src;
+            img.removeAttribute("data-src");
+            img.classList.remove("lazy");
+          }
+          imageObserver.unobserve(img);
+        }
+      });
     });
 
-    button.addEventListener("click", () => {
-      button.classList.add("click-effect");
-      setTimeout(() => {
-        button.classList.remove("click-effect");
-      }, 200);
+    document.querySelectorAll("img[data-src]").forEach((img) => {
+      imageObserver.observe(img);
+    });
+  }
+}
+
+function initializeScrollAnimations() {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px",
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll(".project-card").forEach((card) => {
+    card.style.opacity = "0";
+    card.style.transform = "translateY(30px)";
+    card.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+    observer.observe(card);
+  });
+}
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".btn-open-modal").forEach((button) => {
+    button.addEventListener("click", function (e) {
+      e.preventDefault();
+      const projectId = this.getAttribute("data-project-id");
+      if (projectId) {
+        openModal(projectId);
+      } else {
+        console.error("No se encontró el ID del proyecto");
+      }
     });
   });
 });
 
-// Example: Parallax effect for title (if you have a title element)
-document.addEventListener("DOMContentLoaded", () => {
-  const title = document.querySelector(".your-title-class"); // Replace with your actual title class
-  if (title) {
-    window.addEventListener("scroll", () => {
-      const scrolled = window.pageYOffset;
-      const section = document.querySelector("#projects");
-      if (!section) return;
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
 
-      if (
-        scrolled >= sectionTop - window.innerHeight &&
-        scrolled <= sectionTop + sectionHeight
-      ) {
-        const parallaxValue = (scrolled - sectionTop) * 0.3;
-        title.style.transform = `translateY(${parallaxValue}px)`;
-      }
-    });
-  }
-});
-
-// Example: Swiper slide change animation (if you want to animate cards on slide change)
-document.addEventListener("DOMContentLoaded", () => {
-  const swiper = document.querySelector(".SwiperProject")?.swiper;
-  if (swiper) {
-    swiper.on("slideChange", function () {
-      const activeSlides = document.querySelectorAll(
-        ".swiper-slide-active .card-wrapper, .swiper-slide-next .card-wrapper, .swiper-slide-prev .card-wrapper"
-      );
-
-      activeSlides.forEach((slide, index) => {
-        if (slide instanceof HTMLElement) {
-          slide.style.animation = `slideInFromBottom 0.6s ease-out ${
-            index * 0.1
-          }s both`;
-        }
-      });
-    });
-  }
-});
+window.openModal = openModal;
+window.closeModal = closeModal;
+window.openLightbox = openLightbox;
+window.closeLightbox = closeLightbox;
+window.changeLightboxImage = changeLightboxImage;
