@@ -83,34 +83,13 @@ import "./WeTalent.css";
     </div>
 
     <div class="left-section">
-      <div class="video-container fade-in-right" data-delay="500">
-        <div class="video-placeholder">
-          <video src="/assets/videos/example.mp4"></video>
-        </div>
-        <div class="overlay-wrapper">
-          <div
-            class="play-overlay bounce-in"
-            data-delay="1400"
-            onclick="togglePlay()"
-          >
-            <div
-              class="ripple-effect ripple-1 pulse-animation"
-              data-delay="1600"
-            >
-            </div>
-            <div
-              class="ripple-effect ripple-2 pulse-animation"
-              data-delay="1700"
-            >
-            </div>
-            <div
-              class="ripple-effect ripple-3 pulse-animation"
-              data-delay="1800"
-            >
-            </div>
-            <div class="play-button rotate-in" data-delay="1500"></div>
-          </div>
-        </div>
+      <div class="image-container fade-in-right" data-delay="500">
+        <figure class="main-image">
+          <img
+            src="/assets/images/Gestionhumana.jpeg"
+            alt={translateLabels("wetalent.main.image.alt")}
+          />
+        </figure>
       </div>
     </div>
   </div>

@@ -122,158 +122,48 @@
   font-weight: 600;
 }
 
+/* Sección izquierda actualizada para imagen */
 .wetalent-container .left-section {
   width: 100%;
 }
 
-.wetalent-container .left-section video {
-  width: 100%;
-  height: 150%;
-  border-radius: 20px;
-  z-index: 1;
-  display: none; /* Controlado por JS, se oculta si no está activo */
-}
-
-.video-container {
+.image-container {
   position: relative;
   width: 100%;
   height: 100%;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.video-container:hover {
+.image-container:hover {
   transform: scale(1.02);
 }
 
-.overlay-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
+.main-image {
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-}
-
-.play-overlay {
-  position: relative;
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  background: rgba(0, 150, 255, 0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 30px rgba(0, 150, 255, 0.5);
-  animation: pulse 2s infinite; /* Aplicado aquí */
-}
-
-.play-overlay:hover {
-  transform: scale(1.1);
-  background: rgba(0, 150, 255, 1);
-  box-shadow: 0 0 40px rgba(0, 150, 255, 0.8);
-}
-
-.play-button {
-  width: 0;
-  height: 0;
-  border-left: 25px solid white;
-  border-top: 15px solid transparent;
-  border-bottom: 15px solid transparent;
-  margin-left: 5px;
-  /* La animación pulse se aplica al .play-overlay */
-}
-
-.ripple-effect {
-  position: absolute;
-  border: 2px solid rgba(0, 150, 255, 0.6);
-  border-radius: 50%;
-  opacity: 0; /* Inicialmente oculto */
-  transform: scale(0.8); /* Inicialmente encogido */
-  transition: all 0.3s ease; /* Transición suave para la visibilidad */
-}
-
-.ripple-effect.visible {
-  /* Clase para hacer visible y aplicar la animación */
-  opacity: 0.7;
-  transform: scale(1);
-  animation: ripple 2s infinite; /* Aplicado solo cuando es visible/activo */
-}
-
-.ripple-1 {
-  width: 120px;
-  height: 120px;
-  animation-delay: 0s;
-}
-
-.ripple-2 {
-  width: 140px;
-  height: 140px;
-  animation-delay: 0.5s;
-}
-
-.ripple-3 {
-  width: 160px;
-  height: 160px;
-  animation-delay: 1s;
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes ripple {
-  0% {
-    transform: scale(0.8); /* Inicia desde un poco encogido */
-    opacity: 1; /* Completamente visible al inicio del pulso */
-  }
-  100% {
-    transform: scale(1.2); /* Se expande */
-    opacity: 0; /* Se desvanece */
-  }
-}
-
-.video-placeholder {
-  width: 100%;
-  height: 100%;
-  background: url("/assets/images/video-image.webp") center/cover;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: relative;
   overflow: hidden;
   border-radius: 20px;
   min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.video-placeholder::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
+.main-image img {
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.2);
-  z-index: 2;
+  object-fit: cover;
+  border-radius: 20px;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.video-placeholder::before {
+.main-image:hover img {
+  transform: scale(1.05);
+}
+
+/* Efecto de brillo opcional para la imagen */
+.main-image::before {
   content: "";
   position: absolute;
   top: 0;
@@ -283,11 +173,12 @@
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.2),
     transparent
   );
-  animation: shimmer 2s infinite;
-  z-index: 3;
+  animation: shimmer 3s infinite;
+  z-index: 1;
+  border-radius: 20px;
 }
 
 @keyframes shimmer {
@@ -297,55 +188,6 @@
   100% {
     left: 100%;
   }
-}
-
-.placeholder-text {
-  color: #666;
-  font-size: 18px;
-  z-index: 4;
-  display: none;
-}
-
-.info-overlay {
-  position: absolute;
-  bottom: 30px;
-  left: 30px;
-  color: white;
-  z-index: 15;
-}
-
-.info-overlay h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-}
-
-.info-overlay p {
-  font-size: 16px;
-  opacity: 0.9;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-}
-
-.controls {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 20;
-}
-
-.control-btn {
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
-  color: white;
-  padding: 10px 15px;
-  margin-left: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.control-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
 }
 
 /* Base de animaciones de entrada (fade-in, slide-in, bounce-in, etc.) */
@@ -470,7 +312,6 @@
 }
 
 /* RESPONSIVE STYLES */
-
 /* Media queries para mobile */
 @media (max-width: 768px) {
   .fade-in-up,
@@ -490,14 +331,14 @@
     transform: translateY(-8px) scale(1.02) !important;
   }
 
-  .video-placeholder {
+  .main-image {
     min-height: 300px; /* Ajustado para móviles/tablets pequeñas */
   }
 }
 
 /* Tablets */
 @media (min-width: 728px) {
-  /* Ya se incluye min-height para video-placeholder arriba */
+  /* Ya se incluye min-height para main-image arriba */
 }
 
 /* Laptops Pequeñas */
@@ -535,7 +376,7 @@
     align-items: flex-start; /* Cambio de start en vez de center */
   }
 
-  .video-placeholder {
+  .main-image {
     min-height: 400px;
     height: 50vh;
   }
@@ -552,7 +393,7 @@
     min-height: 75vh;
   }
 
-  .video-placeholder {
+  .main-image {
     min-height: 450px;
     height: 55vh;
   }
@@ -581,7 +422,7 @@
     max-width: 700px;
   }
 
-  .video-placeholder {
+  .main-image {
     min-height: 500px;
     height: 60vh;
   }
@@ -597,20 +438,6 @@
 
   .wetalent-container .left-section {
     margin-top: 6rem;
-  }
-  .ripple-1 {
-    width: 140px;
-    height: 140px;
-  }
-
-  .ripple-2 {
-    width: 160px;
-    height: 160px;
-  }
-
-  .ripple-3 {
-    width: 180px;
-    height: 180px;
   }
 }
 
@@ -630,21 +457,15 @@
     display: none;
   }
 
-  .ripple-effect {
-    /* Aseguramos que la animación no se aplique si está reducida */
+  .main-image::before {
     animation: none !important;
   }
 
-  .play-button {
-    /* La animación pulse está en play-overlay, pero la pongo por si acaso */
-    animation: none !important;
-  }
-
-  /* Si .wetalent-card:hover tiene animaciones adicionales, también deberían desactivarse */
   .wetalent-card,
   .wetalent-card .bg-card img,
   .wetalent-card .content-container figure,
-  .video-container {
+  .image-container,
+  .main-image img {
     transition: none !important;
     transform: none !important;
   }

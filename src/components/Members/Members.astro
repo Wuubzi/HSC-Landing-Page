@@ -3,28 +3,13 @@ import { useTranslations } from "../../i18n/util";
 import { languages } from "../../i18n/ui";
 const currentLang = Astro.currentLocale || "es";
 const translateLabels = useTranslations(currentLang as keyof typeof languages);
+import { getMembersData } from "../../data/MembersData.ts";
+const membersData = getMembersData(translateLabels);
+const members = Object.keys(membersData).map((key) => ({
+  id: key,
+  ...membersData[key],
+}));
 import "./Members.css";
-const members = [
-  {
-    image: "/assets/members/members-first-card-image.webp",
-    imageAlt: translateLabels("mebers.first.card.imageAlt"),
-    name: "Richard Abraham",
-    Occupation: translateLabels("members.first.card.ocupation"),
-  },
-  {
-    image: "/assets/members/members-second-card-image.webp",
-    imageAlt: translateLabels("mebers.second.card.imageAlt"),
-    name: "Lucas Andrew",
-    Occupation: translateLabels("members.second.card.ocupation"),
-  },
-  {
-    image: "/assets/members/members-third-card-image.webp",
-    imageAlt: translateLabels("mebers.third.card.imageAlt"),
-    name: "Sarah Alexon",
-    Occupation: translateLabels("members.third.card.ocupation"),
-  },
-  
-];
 ---
 
 <section id="members">
@@ -49,7 +34,7 @@ const members = [
                   </figure>
                   <div class="members-text-container">
                     <h2>{member.name}</h2>
-                    <p>{member.Occupation}</p>
+                    <p>{member.occupation}</p>
                   </div>
                 </div>
               </div>

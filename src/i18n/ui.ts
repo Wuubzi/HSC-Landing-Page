@@ -35,9 +35,9 @@ export const labels = {
     "hero.button": "Conocenos",
     "hero.imageAlt":
       "Mujer trabajadora de la construcción con casco, gafas de seguridad y herramientas, sonriendo.",
-    
+
     //ABOUT US SECTION
-      "aboutUs.title": "Hacemos realidad proyectos que",
+    "aboutUs.title": "Hacemos realidad proyectos que",
     "aboutUs.title.important": "Transforman",
     "aboutUs.description":
       "Con talento humano altamente calificado, construimos soluciones integrales en ingeniería civil, montaje industrial y estructuras metálicas. Llevamos más de 15 años brindando confianza al sector industrial y comercial de la Costa Norte, con servicios que combinan calidad, cumplimiento y experiencia.",
@@ -65,9 +65,9 @@ export const labels = {
       "Un supervisor o ingeniero con casco blanco y un ejecutivo en traje, ambos en una obra de construcción, observando una excavadora al fondo. Un ícono de marca de verificación aparece en primer plano.",
     "aboutUs.bento.four.imageAlt":
       "Primer plano de un viaducto de concreto con múltiples niveles de autopistas y pilares masivos, visto desde abajo.",
-    
+
     //SERVICE SECTION
-      "service.title": "Nuestros Servicios",
+    "service.title": "Nuestros Servicios",
     "service.description":
       "Soluciones integrales en construccíon y talento humano, con calidad, seguridad, y eficiencia. Contamos con un equipo altamente capacitado para impulsar tus proyectos desde la planificacion hasta la ejecucion",
     "service.card.first.iconAlt":
@@ -85,9 +85,9 @@ export const labels = {
     "service.card.third.title": "Mano de Obra Calificada",
     "service.card.third.description":
       "Te apoyamos con el talento humano ideal para cada etapa del proceso constructivo. Nuestro personal cuenta con certificación y experiencia.",
-   
-   //WE TALENT SECTION
-      "wetalent.title": "Talento Certificado que Construye",
+
+    //WE TALENT SECTION
+    "wetalent.title": "Talento Certificado que Construye",
     "wetalent.title.important": "Resultados",
     "wetalent.description":
       "Reclutamos el equipo ideal para tus obras, con personal altamente calificado y listo para actuar. Nuestro enfoque combina experiencia en selección y conocimientos técnicos para ofrecerte los mejores perfiles del sector construcción.",
@@ -104,9 +104,9 @@ export const labels = {
     "wetalent.third.card.iconAlt": "Icono de un puente o estructura.",
     "wetalent.third.card.backgroundAlt":
       "Imagen de fondo borrosa con colores cálidos y siluetas de estructuras metálicas o grúas, sugiriendo un sitio industrial o de construcción.",
-   
-   //PROJECT SECTION
-      "project.title": "Obras Civiles que Conectan el Futuro",
+    "wetalent.main.image.alt": "",
+    //PROJECT SECTION
+    "project.title": "Obras Civiles que Conectan el Futuro",
     "project-card-first-title": "Centro Empresarial Nexus",
     "project-card-first-description":
       "Un espacio moderno y minimalista diseñado para oficinas de alto nivel, con arquitectura de concreto expuesto y líneas limpias.",
@@ -127,7 +127,8 @@ export const labels = {
 
     // Project 1 Translations
     "project1-title": "Montaje del Tren Laminador",
-    "project1-description": "Proyecto integral de gran envergadura que incluyó el montaje de estructuras metálicas, cubiertas, puente grúa, horno, planta de agua para el tren laminador, montaje de mesa de acabado y atadoras, diseño y pintura de logos Ternium, e instalación, montaje y puesta en marcha del sistema eléctrico completo del laminador. Este proyecto representó un hito en nuestra capacidad técnica y de ejecución.",
+    "project1-description":
+      "Proyecto integral de gran envergadura que incluyó el montaje de estructuras metálicas, cubiertas, puente grúa, horno, planta de agua para el tren laminador, montaje de mesa de acabado y atadoras, diseño y pintura de logos Ternium, e instalación, montaje y puesta en marcha del sistema eléctrico completo del laminador. Este proyecto representó un hito en nuestra capacidad técnica y de ejecución.",
     "project1-duration": " meses",
     "project1-type": "Montaje Industrial Integral",
     "project1-personnel": " especialistas",
@@ -141,7 +142,8 @@ export const labels = {
 
     // Project 2 Translations
     "project2-title": "Diseño y Fabricación de Estructura Cubierta",
-    "project2-description": "Diseño, cálculos estructurales, fabricación y montaje de estructura metálica para cubierta de chatarra en las instalaciones de Manizales. El proyecto incluyó el análisis estructural completo, fabricación de elementos metálicos y montaje especializado con técnicas avanzadas de ingeniería.",
+    "project2-description":
+      "Diseño, cálculos estructurales, fabricación y montaje de estructura metálica para cubierta de chatarra en las instalaciones de Manizales. El proyecto incluyó el análisis estructural completo, fabricación de elementos metálicos y montaje especializado con técnicas avanzadas de ingeniería.",
     "project2-duration": " meses",
     "project2-type": "Estructura Metálica",
     "project2-personnel": " especialistas",
@@ -152,7 +154,8 @@ export const labels = {
 
     // Project 3 Translations
     "project3-title": "Construcción de Pavimentos y Vías",
-    "project3-description": "Construcción integral de pavimentos, vías y muros en concreto, incluyendo infraestructura vial completa y sistema de manejo de aguas. El proyecto abarcó la construcción de más de 2 km de vías internas, pavimentos de alta resistencia y un sistema de drenaje optimizado para el manejo de aguas lluvias.",
+    "project3-description":
+      "Construcción integral de pavimentos, vías y muros en concreto, incluyendo infraestructura vial completa y sistema de manejo de aguas. El proyecto abarcó la construcción de más de 2 km de vías internas, pavimentos de alta resistencia y un sistema de drenaje optimizado para el manejo de aguas lluvias.",
     "project3-duration": " meses",
     "project3-type": "Obra Civil",
     "project3-personnel": " especialistas",
@@ -164,7 +167,8 @@ export const labels = {
 
     // Project 4 Translations
     "project4-title": "Suministro de Personal Especializado",
-    "project4-description": "Suministro de personal altamente calificado en áreas de ingeniería y mantenimiento: mecánicos industriales certificados, soldadores con certificación internacional, técnicos eléctricos e inspectores de seguridad industrial. El personal proporcionado cuenta con más de 10 años de experiencia promedio en el sector industrial.",
+    "project4-description":
+      "Suministro de personal altamente calificado en áreas de ingeniería y mantenimiento: mecánicos industriales certificados, soldadores con certificación internacional, técnicos eléctricos e inspectores de seguridad industrial. El personal proporcionado cuenta con más de 10 años de experiencia promedio en el sector industrial.",
     "project4-duration": "Contrato anual renovable",
     "project4-type": "Recursos Humanos Especializados",
     "project4-personnel": " profesionales",
@@ -174,7 +178,8 @@ export const labels = {
 
     // Project 5 Translations
     "project5-title": "Sistema Colector de Material Particulado",
-    "project5-description": "Fabricación de 100 unidades de rack metálicos para placas, montaje e instalación de sistema colector de material particulado con tecnología de filtración avanzada, y fabricación de portones industriales automatizados. El proyecto incluyó la implementación de sistemas de control ambiental y automatización industrial.",
+    "project5-description":
+      "Fabricación de 100 unidades de rack metálicos para placas, montaje e instalación de sistema colector de material particulado con tecnología de filtración avanzada, y fabricación de portones industriales automatizados. El proyecto incluyó la implementación de sistemas de control ambiental y automatización industrial.",
     "project5-duration": " meses",
     "project5-type": "Sistema Industrial y Ambiental",
     "project5-personnel": " especialistas",
@@ -187,7 +192,8 @@ export const labels = {
 
     // Project 6 Translations
     "project6-title": "Construcción de Instalaciones Deportivas",
-    "project6-description": "Construcción integral de kiosco deportivo con diseño arquitectónico moderno, instalación de grama sintética de última generación en cancha de fútbol, y construcción de placa especializada en pista atlética. El proyecto incluyó sistemas de drenaje, iluminación LED y mobiliario deportivo completo.",
+    "project6-description":
+      "Construcción integral de kiosco deportivo con diseño arquitectónico moderno, instalación de grama sintética de última generación en cancha de fútbol, y construcción de placa especializada en pista atlética. El proyecto incluyó sistemas de drenaje, iluminación LED y mobiliario deportivo completo.",
     "project6-duration": " meses",
     "project6-type": "Construcción Deportiva y Educativa",
     "project6-personnel": " especialistas",
@@ -214,9 +220,9 @@ export const labels = {
     "members.third.card.ocupation": "Diseñadora de Interiores",
     "mebers.third.card.imageAlt":
       "Una mujer joven sonriendo, con cabello trenzado, gafas de seguridad transparentes y guantes de trabajo naranjas, con un fondo de almacén borroso.",
-    
+
     //REVIEWS SECTION
-      "reviews.title": "Testimonios de Nuestros Clientes Satisfechos",
+    "reviews.title": "Testimonios de Nuestros Clientes Satisfechos",
     "reviews.card.first.review":
       "Lo que más valoramos de Constructora HSC es su capacidad para suministrar personal calificado y certificado. Sus soldadores, electricistas y mecánicos son excepcionales. Han sido nuestro socio estratégico en múltiples proyectos durante los últimos 8 años.",
     "reviews.card.first.imageAlt": "Una mujer rubia con traje de negocios.",
@@ -228,16 +234,16 @@ export const labels = {
       "La experiencia trabajando con Constructora HSC ha sido sobresaliente. Su compromiso con la calidad y la puntualidad en cada fase del proyecto es digno de elogio. Definitivamente, son un referente en el sector de la construcción",
     "reviews.card.third.imageAlt":
       "Un hombre con gafas y barba, vistiendo un saco de cuadros y camisa blanca con cuello estampado.",
-    
+
     //BLOGS SECTION
-      "blog.title":
+    "blog.title":
       "LEE NUESTRO BLOG PARA TENER UN CONOCIMIENTO CLARO SOBRE NOSOTROS",
     "blog.modal.author": "Autor",
     "blog.modal.date": "Fecha",
     "blog.tags": "Etiquetas",
     "error.blogNotFound": "Blog no encontrado",
     "error.loadingError": "Error al cargar el blog",
-    
+
     //WORKING SECTION
     "working.title": "¿Quieres trabajar con nosotros?",
     "working.description":
@@ -260,9 +266,9 @@ export const labels = {
     "working.modal.button": "Enviar Aplicación",
     "working.modal.success":
       " ¡Gracias! Tu aplicación ha sido enviada exitosamente. Te contactaremos pronto.",
-    
+
     //FOOTER SECTION
-      "footer.description":
+    "footer.description":
       "HSC se esfuerza por ser un líder intelectual en nuestra industria y brindar información continua y actualizaciones a nuestros clientes",
     "footer.link.title": "Enlaces Rapido",
     "footer.link.first": "Sobre Nosotros",
@@ -350,6 +356,7 @@ export const labels = {
     "wetalent.third.card.iconAlt": "Bridge or structure icon.",
     "wetalent.third.card.backgroundAlt":
       "Blurred background image with warm colors and silhouettes of metal structures or cranes, suggesting an industrial or construction site.",
+    "wetalent.main.image.alt": "",
     "service.title": "Our Services",
     "service.description":
       "Integral solutions in construction and human talent, with quality, safety, and efficiency. We have a highly trained team to drive your projects from planning to execution.",
@@ -389,7 +396,8 @@ export const labels = {
 
     // Project 1 Translations
     "project1-title": "Rolling Mill Assembly",
-    "project1-description": "Large-scale integral project that included the assembly of metallic structures, roofs, bridge crane, furnace, water treatment plant for the rolling mill, assembly of finishing table and tying machines, design and painting of Ternium logos, and installation, assembly, and commissioning of the complete electrical system of the rolling mill. This project represented a milestone in our technical and execution capacity.",
+    "project1-description":
+      "Large-scale integral project that included the assembly of metallic structures, roofs, bridge crane, furnace, water treatment plant for the rolling mill, assembly of finishing table and tying machines, design and painting of Ternium logos, and installation, assembly, and commissioning of the complete electrical system of the rolling mill. This project represented a milestone in our technical and execution capacity.",
     "project1-duration": " months",
     "project1-type": "Integral Industrial Assembly",
     "project1-personnel": " specialists",
@@ -403,7 +411,8 @@ export const labels = {
 
     // Project 2 Translations
     "project2-title": "Design and Fabrication of Roof Structure",
-    "project2-description": "Design, structural calculations, fabrication, and assembly of metallic structure for scrap roof at the Manizales facilities. The project included complete structural analysis, fabrication of metallic elements, and specialized assembly with advanced engineering techniques.",
+    "project2-description":
+      "Design, structural calculations, fabrication, and assembly of metallic structure for scrap roof at the Manizales facilities. The project included complete structural analysis, fabrication of metallic elements, and specialized assembly with advanced engineering techniques.",
     "project2-duration": " months",
     "project2-type": "Metal Structure",
     "project2-personnel": " specialists",
@@ -414,7 +423,8 @@ export const labels = {
 
     // Project 3 Translations
     "project3-title": "Pavement and Road Construction",
-    "project3-description": "Integral construction of pavements, roads, and concrete walls, including complete road infrastructure and water management system. The project covered the construction of more than 2 km of internal roads, high-resistance pavements, and an optimized drainage system for rainwater management.",
+    "project3-description":
+      "Integral construction of pavements, roads, and concrete walls, including complete road infrastructure and water management system. The project covered the construction of more than 2 km of internal roads, high-resistance pavements, and an optimized drainage system for rainwater management.",
     "project3-duration": " months",
     "project3-type": "Civil Work",
     "project3-personnel": " specialists",
@@ -426,7 +436,8 @@ export const labels = {
 
     // Project 4 Translations
     "project4-title": "Supply of Specialized Personnel",
-    "project4-description": "Supply of highly qualified personnel in engineering and maintenance areas: certified industrial mechanics, internationally certified welders, electrical technicians, and industrial safety inspectors. The provided personnel have an average of over 10 years of experience in the industrial sector.",
+    "project4-description":
+      "Supply of highly qualified personnel in engineering and maintenance areas: certified industrial mechanics, internationally certified welders, electrical technicians, and industrial safety inspectors. The provided personnel have an average of over 10 years of experience in the industrial sector.",
     "project4-duration": "Renewable annual contract",
     "project4-type": "Specialized Human Resources",
     "project4-personnel": " professionals",
@@ -436,7 +447,8 @@ export const labels = {
 
     // Project 5 Translations
     "project5-title": "Particulate Matter Collection System",
-    "project5-description": "Fabrication of 100 metallic rack units for plates, assembly and installation of a particulate matter collection system with advanced filtration technology, and fabrication of automated industrial gates. The project included the implementation of environmental control systems and industrial automation.",
+    "project5-description":
+      "Fabrication of 100 metallic rack units for plates, assembly and installation of a particulate matter collection system with advanced filtration technology, and fabrication of automated industrial gates. The project included the implementation of environmental control systems and industrial automation.",
     "project5-duration": " months",
     "project5-type": "Industrial and Environmental System",
     "project5-personnel": " specialists",
@@ -449,7 +461,8 @@ export const labels = {
 
     // Project 6 Translations
     "project6-title": "Construction of Sports Facilities",
-    "project6-description": "Integral construction of a modern architectural design sports kiosk, installation of state-of-the-art synthetic turf on a soccer field, and construction of a specialized slab on an athletic track. The project included drainage systems, LED lighting, and complete sports furniture.",
+    "project6-description":
+      "Integral construction of a modern architectural design sports kiosk, installation of state-of-the-art synthetic turf on a soccer field, and construction of a specialized slab on an athletic track. The project included drainage systems, LED lighting, and complete sports furniture.",
     "project6-duration": " months",
     "project6-type": "Sports and Educational Construction",
     "project6-personnel": " specialists",
